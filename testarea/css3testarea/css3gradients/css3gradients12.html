@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<!-- Different sized gradients  -->
+<html>
+<head>
+	<title></title>
+	<style>
+		#grad1 {
+			height: 150px;
+			width: 150px;
+			background: -webkit-radial-gradient(60% 55%, closest-side, blue, green, yellow, black);
+			background: -o-radial-gradient(60% 55%, closest-side, blue, green. yellow, black);	
+			background: -moz-radial-gradient(60% 55%, closest-side, blue, green, yellow, black);
+			background: radial-gradient(60% 55%, closest-side, blue, green, yellow, black);
+			
+		}
+		
+		#grad2 {
+			height: 150px;
+			width: 150px;
+			background: -webkit-radial-gradient(60% 55%, farthest-side, blue, green, yellow, black);
+			background: -o-radial-gradient(60% 55%, farthest-side, blue, green, yellow, black);
+			background: -moz-radial-gradient(60% 55%, farthest-side, blue, green, yellow, black);
+			background: radial-gradient(60% 55%, farthest-side, blue, green, yellow, black);
+		}
+		
+		#grad3 {
+			height: 150px;
+			width: 150px;
+			background: -webkit-radial-gradient(60% 55%, closest-corner, blue, green, yellow, black);		
+			background: -o-radial-gradient(60% 55%, closest-corner, blue, green, yellow, black);		
+			background: -moz-radial-gradient(60% 55%, closest-corner, blue, green, yellow, black);		
+			background: radial-gradient(60% 55%, closest-corner, blue, green, yellow, black);		
+		}
+	
+		#grad4 {
+			height: 150px;
+			width: 150px;
+			background: -webkit-radial-gradient(60% 55%, farthest-corner, blue, green, yellow, black);
+			background: -o-radial-gradient(60% 55%, farthest-corner, blue, green, yellow, black);
+			background: -moz-radial-gradient(60% 55%, farthest-corner, blue, green, yellow, black);
+			background: radial-gradient(60% 55%, farthest-corner, blue, green, yellow, black);
+		}
+	</style>
+</head>
+<body>
+	<h3>Radial Gradients - Use of different size keywords</h3>
+	<p><strong>closest-side:</strong></p>
+	<div id="grad1"></div>
+	
+	<p><strong>farthest-side:</strong></p>
+	<div id="grad2"></div>
+	
+	<p><strong>closest-corner:</strong></p>
+	<div id="grad3"></div>
+
+	<p><strong>farthest-corner(this is default):</strong></p>
+	<div id="grad4"></div>
+
+	<p><strong>Note: </strong>IE9 and earlier versions do not support gradients.</p>
+</body>
+</html>

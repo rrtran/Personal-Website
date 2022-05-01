@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Directory</title>
+	<style>
+		body {
+			background-color: #A3FF85;
+		}
+
+		div.toc {
+			margin: 10px auto;
+			padding: 5px;
+			height: 200px;
+			border: 1px solid #000000;
+		}
+	
+		div.sec {
+			background: #7FFF73;	
+			border: 1px black;
+			border-style: solid none;
+			margin: 5px;
+			padding: 2px 0;
+		}
+	
+		div.sTitle {
+			background-color: inherit; 
+			width: 15%;
+			float: left;
+			padding-top: 2px;			
+		}
+
+		div.sContent {
+			background-color: #6CF364;
+		}
+
+		div.sContent > a {
+			padding-left: 10px;
+		}
+
+		div a {
+			padding-right: 10px;
+			border: 1px solid #3ED43D;
+			border-radius: 25px;
+			text-align: center;
+			background: #3ED43D;
+		}		
+		
+		div a:visited, div a:link {
+			text-decoration: none;
+			color: black;
+		}
+
+		div a:hover, div a:active {
+			background: #6CF364;
+		}
+		div.displayArea {
+			display: flex;
+		}
+
+		div.displayButton {
+		}
+		
+		div.displayArea iframe {
+			background-color: white;
+			width: 1096px;
+			height: 400px;	
+			margin: 5px;
+			padding: 0;
+			border: 2px solid brown;
+		}
+		
+		div.displayArea  button {  
+			margin: 5px;
+			width: 80px;
+			display: block;
+			background-image: url(http://www.regiontran.com/db/t2.png);	
+			border-style: none;
+			color: brown;
+		}
+		#wrapper {
+			margin: 0 auto;
+			width: 1200px;
+		}
+
+		#wrapper2 {
+			margin: 0 auto;
+			width: 1200px;
+		}
+		</style>
+</head>
+<body>
+<!-- Toc -->
+
+<!-- Thinking of removing the ToC because the page isn't so long
+<div class="toc">
+Directory:
+<a href="#CSS Backgrounds">CSS Backgrounds</a>
+<a href="#CSS Text">CSS Text</a>
+<a href="#CSS Fonts">CSS Fonts</a>
+<a href="#CSS Links">CSS Links</a>
+<a href="#CSS Lists">CSS Lists</a>
+<a href="#CSS Tables">CSS Tables</a>
+<a href="#CSS Box Model">CSS Box Model</a>
+<a href="#CSS Border">CSS Border</a>
+<a href="#CSS Outline">CSS Outline</a>
+<a href="#CSS Margin">CSS Margin</a>
+<a href="#CSS Padding">CSS Padding</a>
+<a href="#CSS Display">CSS Display</a>
+<a href="#CSS Positioning">CSS Positioning</a>
+<a href="#CSS Floating">CSS Floating</a>
+<a href="#CSS Align">CSS Align</a>
+<a href="#CSS Combinators">CSS Combinators</a>
+<a href="#CSS Pseudo-class">CSS Pseudo-class</a>
+<a href="#CSS Pseudo-element">CSS Pseudo-element</a>
+</div>
+-->
+
+<div id="wrapper2">
+<div class="displayArea">
+	<div class="displayButton">
+		<button type="button" onclick="restoreIframe()">Regular</button>
+		<button type="button" onclick="shrinkIframe()">Shrink</button>
+	</div>
+
+	<div class="displayWindow">
+		<iframe src="//www.regiontran.com/testarea/csstestarea/cssbackgrounds/cssbackgrounds04.html" name="pageFrame" id="pageFrame"></iframe>
+	</div>
+		
+</div>
+</div>
+<div id="wrapper">
+<div class="sec" id="CSS Backgrounds">
+	<div class="sTitle">
+		CSS Backgrounds
+	</div>
+	<div class="sContent">
+<a href="csstestarea/cssbackgrounds/cssbackgrounds01.html" target="pageFrame">Background 1</a>
+<a href="csstestarea/cssbackgrounds/cssbackgrounds02.html" target="pageFrame">Background 2</a>
+<a href="csstestarea/cssbackgrounds/cssbackgrounds03.html" target="pageFrame">Background 3</a>
+<a href="csstestarea/cssbackgrounds/cssbackgrounds04.html" target="pageFrame">Background 4</a>
+	</div>
+</div>
+
+
+
+<div class="sec" id="CSS Text">
+	<div class="sTitle">
+		CSS Text  
+	</div>
+	<div class="sContent">
+<a href="csstestarea/csstext/csstext01.html" target="pageFrame">Text 1</a>
+<a href="csstestarea/csstext/csstext02.html" target="pageFrame">Text 2</a>
+<a href="csstestarea/csstext/csstext03.html" target="pageFrame">Text 3</a>
+<a href="csstestarea/csstext/csstext04.html" target="pageFrame">Text 4</a>
+<a href="csstestarea/csstext/csstext05.html" target="pageFrame">Text 5</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Fonts">
+	<div class="sTitle">
+		CSS Fonts   
+	</div>
+
+	<div class="sContent">
+<a href="csstestarea/cssfonts/cssfonts01.html" target="pageFrame">Fonts 1</a>
+<a href="csstestarea/cssfonts/cssfonts02.html" target="pageFrame">Fonts 2</a>
+<a href="csstestarea/cssfonts/cssfonts03.html" target="pageFrame">Fonts 3</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Links">
+	<div class="sTitle">
+		CSS Links   
+	</div>
+
+	<div class="sContent">
+<a href="csstestarea/csslinks/csslinks01.html" target="pageFrame">Links 2</a>
+<a href="csstestarea/csslinks/csslinks02.html" target="pageFrame">Links 2</a>
+<a href="csstestarea/csslinks/csslinks03.html" target="pageFrame">Links 3</a>
+	</div>
+</div>
+
+
+<div class="sec" id="CSS Lists">
+	<div class="sTitle">
+		CSS Lists   
+	</div>
+
+	<div class="sContent">
+<a href="csstestarea/csslists/csslists01.html" target="pageFrame">Lists 1</a>
+<a href="csstestarea/csslists/csslists02.html" target="pageFrame">Lists 2</a>
+<a href="csstestarea/csslists/csslists03.html" target="pageFrame">Lists 3</a>
+<a href="csstestarea/csslists/csslists04.html" target="pageFrame">Lists 4</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Tables">
+	<div class="sTitle">
+		CSS Tables   
+	</div>
+
+	<div class="sContent">
+<a href="csstestarea/csstables/csstables01.html" target="pageFrame">Table 1</a>
+<a href="csstestarea/csstables/csstables02.html" target="pageFrame">Table 2</a>
+<a href="csstestarea/csstables/csstables03.html" target="pageFrame">Table 3</a>
+<a href="csstestarea/csstables/csstables04.html" target="pageFrame">Table 4</a>
+<a href="csstestarea/csstables/csstables05.html" target="pageFrame">Table 5</a>
+<a href="csstestarea/csstables/csstables06.html" target="pageFrame">Table 6</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Box Model">
+	<div class="sTitle">
+		CSS Box Model   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssboxmodel/cssboxmodel01.html" target="pageFrame">Box Model 1</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Border">
+	<div class="sTitle">
+		CSS Border   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssborder/cssborder01.html" target="pageFrame">Border 1</a>	
+		<a href="csstestarea/cssborder/cssborder02.html" target="pageFrame">Border 2</a>
+		<a href="csstestarea/cssborder/cssborder03.html" target="pageFrame">Border 3</a>
+		<a href="csstestarea/cssborder/cssborder04.html" target="pageFrame">Border 4</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Margin">
+	<div class="sTitle">
+		CSS Margin   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssmargin/cssmargin01.html" target="pageFrame">Margin 1</a>
+		<a href="csstestarea/cssmargin/cssmargin02.html" target="pageFrame">Margin 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Padding">
+	<div class="sTitle">
+		CSS Padding   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/csspadding/csspadding01.html" target="pageFrame">Padding 1</a>
+		<a href="csstestarea/csspadding/csspadding02.html" target="pageFrame">Padding 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Display">
+	<div class="sTitle">
+		CSS Display   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssdisplay/cssdisplay01.html" target="pageFrame">Display 1</a>	
+		<a href="csstestarea/cssdisplay/cssdisplay02.html" target="pageFrame">Display 2</a>	
+		<a href="csstestarea/cssdisplay/cssdisplay03.html" target="pageFrame">Display 3</a>	
+		<a href="csstestarea/cssdisplay/cssdisplay04.html" target="pageFrame">Display 4</a>	
+	</div>
+</div>
+
+<div class="sec" id="CSS Positioning">
+	<div class="sTitle">
+		CSS Positioning   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/csspositioning/csspositioning01.html" target="pageFrame">Positioning 1</a>
+		<a href="csstestarea/csspositioning/csspositioning02.html" target="pageFrame">Positioning 2</a>
+		<a href="csstestarea/csspositioning/csspositioning03.html" target="pageFrame">Positioning 3</a>
+		<a href="csstestarea/csspositioning/csspositioning04.html" target="pageFrame">Positioning 4</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Floating">
+	<div class="sTitle">
+		CSS Floating   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssfloating/cssfloating01.html" target="pageFrame">Floating 1</a>
+		<a href="csstestarea/cssfloating/cssfloating02.html" target="pageFrame">Floating 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Align">
+	<div class="sTitle">
+		CSS Align   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssalign/cssalign01.html" target="pageFrame">Align 1</a>
+		<a href="csstestarea/cssalign/cssalign02.html" target="pageFrame">Align 2</a>
+		<a href="csstestarea/cssalign/cssalign03.html" target="pageFrame">Align 3</a>
+		<a href="csstestarea/cssalign/cssalign04.html" target="pageFrame">Align 4</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Combinators">
+	<div class="sTitle">
+		CSS Combinators   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/csscombinators/csscombinators01.html" target="pageFrame">Combinators 1</a>	
+		<a href="csstestarea/csscombinators/csscombinators02.html" target="pageFrame">Combinators 2</a>	
+		<a href="csstestarea/csscombinators/csscombinators03.html" target="pageFrame">Combinators 3</a>	
+		<a href="csstestarea/csscombinators/csscombinators04.html" target="pageFrame">Combinators 4</a>	
+	</div>
+</div>
+
+<div class="sec" id="CSS Pseudo-class">
+	<div class="sTitle">
+		CSS Pseudo-class   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/csspseudo-class/csspseudo-class01.html" target="pageFrame">Pseudo-class 1</a>
+		<a href="csstestarea/csspseudo-class/csspseudo-class02.html" target="pageFrame">Pseudo-class 2</a>
+		<a href="csstestarea/csspseudo-class/csspseudo-class03.html" target="pageFrame">Pseudo-class 3</a>
+		<a href="csstestarea/csspseudo-class/csspseudo-class04.html" target="pageFrame">Pseudo-class 4</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Pseudo-element">
+	<div class="sTitle">
+		CSS Pseudo-element   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/csspseudo-element/csspseudo-element01.html" target="pageFrame">Pseudo-element 1</a>
+		<a href="csstestarea/csspseudo-element/csspseudo-element02.html" target="pageFrame">Pseudo-element 2</a>
+		<a href="csstestarea/csspseudo-element/csspseudo-element03.html" target="pageFrame">Pseudo-element 3</a>
+		<a href="csstestarea/csspseudo-element/csspseudo-element04.html" target="pageFrame">Pseudo-element 4</a>
+		<a href="csstestarea/csspseudo-element/csspseudo-element05.html" target="pageFrame">Pseudo-element 5</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Navigation Bar">
+	<div class="sTitle">
+		CSS Navigation Bar   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssnavigationbar/cssnavigationbar01.html" target="pageFrame">Navigation Bar 1</a>
+		<a href="csstestarea/cssnavigationbar/cssnavigationbar02.html" target="pageFrame">Navigation Bar 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Image Gallery">
+	<div class="sTitle">
+		CSS Image Gallery   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssimagegallery/cssimagegallery01.html" target="pageFrame">Image Gallery 1</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Image Opacity">
+	<div class="sTitle">
+		CSS Image Opacity   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssimageopacity/cssimageopacity01.html" target="pageFrame">Image Opacity 1</a>
+		<a href="csstestarea/cssimageopacity/cssimageopacity02.html" target="pageFrame">Image Opacity 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Image Sprites">
+	<div class="sTitle">
+		CSS Image Sprites   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssimagesprites/cssimagesprites01.html" target="pageFrame">Image Sprites 1</a>
+		<a href="csstestarea/cssimagesprites/cssimagesprites02.html" target="pageFrame">Image Sprites 2</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Media Types">
+	<div class="sTitle">
+		CSS Media Types   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssmediatypes/cssmediatypes01.html" target="pageFrame">Media Types 1</a>
+	</div>
+</div>
+
+<div class="sec" id="CSS Attr Selectors">
+	<div class="sTitle">
+		CSS Attr Selectors   
+	</div>
+
+	<div class="sContent">
+		<a href="csstestarea/cssattrselectors/cssattrselectors01.html" target="pageFrame">1</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors02.html" target="pageFrame">2</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors03.html" target="pageFrame">3</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors04.html" target="pageFrame">4</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors05.html" target="pageFrame">5</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors06.html" target="pageFrame">6</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors07.html" target="pageFrame">7</a>
+		<a href="csstestarea/cssattrselectors/cssattrselectors08.html" target="pageFrame">8</a>
+	</div>
+</div>
+</div>
+
+<script>
+	function shrinkIframe() {
+		document.getElementById("pageFrame").style.width = "300px";
+		document.getElementById("pageFrame").style.height = "400px";
+	}
+	
+	function restoreIframe() {
+		document.getElementById("pageFrame").style.width = "1096px";	
+		document.getElementById("pageFrame").style.height = "400px";	
+	}
+</script>
+</body>
+</html>

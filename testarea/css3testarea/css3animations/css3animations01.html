@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!--   -->
+<html>
+<head>
+	<title></title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			-webkit-animation: myFirst 5s;
+			animation: myFirst 5s;
+		}
+
+		@-webkit-keyframes myFirst {
+			from 	{background: red;}
+			to		{background: yellow;}
+		}
+
+		@keyframes myFirst {
+			from 	{background: red;}
+			to 		{background: yellow;}
+		}
+	</style>
+</head>
+<body>
+	<p><b>Note: </b>This example does not work in Internet Explorer 9 and earlier versions.</p>
+	
+	<div></div>
+</body>
+</html>

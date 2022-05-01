@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5</title>
+</head>
+<body>
+
+<form action="/cgi-bin/pcstatus.pl" id="form1">
+First name:<input type="text" name="argA"><br>
+Last name: <input type="text" name="argB"><br>
+<input type="submit" value="Submit"><br>
+<input type="submit" value="Submit as Admin" formaction="/cgi-bin/add.pl">
+</form>
+
+<form action="/cgi-bin/add.pl">
+<input type="image" src="db/kiku.png" alt="Submit" width="48" height="48">
+</form>
+
+<input list="names">
+
+<datalist id="names">
+ <option value="Ricky">
+ <option value="Ging">
+ <option value="Alex">
+</datalist>
+
+Enter a date before 1980-01-01:
+<input type="date" name="bday" max="1979-12-31">
+
+Enter a date after 2000-01-01:
+<input type="date" name="bday" min="2000-01-02">
+
+Quantity (between 1 and 5)
+<input type="number" name="quantity" min="1" max="5">
+
+<form action="/cgi-bin/add.pl">
+ a: <input type="text" name="argA" pattern="[0-9]*" title="numeric value only" required>
+ b: <input type="text" name="argB" pattern="[0-9]*" title="numeric value only" required>
+ <input type="submit" value="Submit">
+</form>
+
+<input type="text" name="fname" placeholder="First name">
+<input type="range" step="3">
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0,0,150,75);
+
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("myCanvas2");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+</script>
+
+<canvas id="myCanvasText" width="200" height="100"></canvas>
+<script>
+var c = document.getElementById("myCanvasText");
+var ctx = c.getContext("2d");
+ctx.font = "30px Arial";
+ctx.strokeText("Hello World",10,50);
+
+ctx.fillStyle = "#FF0000";
+ctx.fillText();
+</script>
+
+<canvas id="myCanvasGrad" width="200" height="100"></canvas>
+<script>
+var c = document.getElementById("myCanvasGrad");
+var ctx = c.getContext("2d");
+
+// Create gradient
+var grd = ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(.5,"white");
+grd.addColorStop(1,"blue");
+
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10,10,150,80);
+</script>
+
+<div style="text-align:center">
+ <button onclick="playPause()">Play/Pause</button>
+ <button onclick="makeBig()">Big</button>
+ <button onclick="makeSmall()">Small</button>
+ <button onclick="makeNormal()">Normal</button>
+ <br>
+ <video id="video1" width="420">
+  <source src="db/CashmereCloth_100_great.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+ </video>
+</div>
+
+<script>
+var myVideo = document.getElementById("video1");
+
+function playPause() {
+ 	if (myVideo.paused) 
+		myVideo.play();
+	else
+		myVideo.pause();
+}
+
+function makeBig() {
+	myVideo.width = 560;
+}
+
+function makeSmall() {
+	myVideo.width = 320;
+}
+
+function makeNormal() {
+	myVideo.width = 420;
+}
+</script>
+<br>
+<audio id="audio1">
+ <source src="db/Windows95_Sucks.mp3" type="audio/mpeg">
+ Your browser does not support the audio element.
+</audio>
+
+
+<button onclick="playPauseAudio()">Play/Pause Audio</button>
+<script>
+var myAudio = document.getElementById("audio1");
+
+function playPauseAudio() {
+	if (myAudio.paused)
+		myAudio.play();
+	else
+		myAudio.pause();
+}
+</script>
+
+<script>
+  if (typeof(Storage) != "undefined") {
+    localStorage.setItem("lastname", "Smith");
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+  }
+</script>
+<script>
+	function click() {
+		if (localStorage.clickcount) {
+		  localStorage.clickcount = Number(localStorage.clickcount) + 1;
+	  } else {
+	    localStorage.clickcount = 1;
+	  }
+	  document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+	}
+
+	function resetClick() {
+		if (typeof(Storage) != "undefined") {
+			localStorage.clickcount = 0;
+		}
+	}
+</script>
+
+<button onclick="window.click()" type="button">Click Me!</button>
+<button onclick="resetClick()" type="button">Reset Me!</button>
+<div id="result"></div>
+
+
+<div id="sesResult"></div>
+<button onclick="click2()" type="button">Click2</button>
+
+
+<script>
+	function click2() {
+		if (typeof(Storage) != "undefined") {
+			if (sessionStorage.clickcount) {
+				sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+			} else {
+				sessionStorage.clickcount = 1;
+			}
+			document.getElementById("sesResult").innerHTML = "you have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+		} else {
+			document.getElementById("sesResult").innerHTML = "Your browser doesn't support web storage.";
+		}
+	}
+</script>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+var w;
+
+function startWorker() {
+	if (typeof(Worker) != "undefined") {
+		if (typeof(w) == "undefined") {
+			w = new Worker("demo_workers.js");
+		}
+		w.onmessage = function(event) {
+			document.getElementById("result").innerHTML = event.data;
+		};
+	} else {
+		document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+	}
+}
+
+function stopWorker() {
+	w.terminate();
+}
+</script>
+
+<h1>Getting server updates</h1>
+<div id="serverUpdates"></div>
+
+<script>
+	if (typeof(EventSource) != "undefined") {
+		var source = new EventSource("serverstatus.php");
+		//var source = new EventSource("demo_sse.php");
+		source.onmessage = function(event) {
+			document.getElementById("serverUpdates").innerHTML = event.data;
+		};
+	} else {
+		document.getElementById("serverUpdates").innerHTML = "Sorry, your browser does not support server-sent events...";
+	}
+	
+</script>
+
+<object data="db/CashmereCloth_100_great.mp4"></object>
+<embed width="200" height="400" src="db/t2.png">
+<!-- Hide this for now 
+<embed src="db/Windows95_Sucks.mp3" type="audio/mpeg"> 
+-->
+<audio controls>
+ <source src="db/Windows95_Sucks.mp3" type="audio/mpeg">
+ <embed src="db/Windows95_Sucks.mp3" height="50" width="100">
+</audio>
+
+<p><a href="db/CashmereCloth_100_great.mp4">Click here</a></p>
+<p><a href="db/Sakurasou no Pet na Kanojo/01 Prime number ~Kimi to Deaeru Hi~.flac">Prime Number</a></p>
+
+
+<hr>
+<video width="320" height="240" controls>
+	<source src="db/CashmereCloth_100_great.mp4" type="video/mp4">
+</video>
+<hr>
+<iframe width="640" height="360" src="//www.youtube.com/embed/gcUKQtG9yns?feature=player_detailpage" frameborder="0" allowfullscreen></iframe><br>
+<hr>
+
+<iframe width="640" height="360" src="//www.youtube.com/embed/MDG1rIz1S7k?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+</body>
+</html>
+
+
+

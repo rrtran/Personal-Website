@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>CSS3 under development</title>
+	<style>
+		body {
+			background: black;
+		}
+	
+		#grad1 {
+			position: fixed;
+			width: 100%;
+			text-align: center;
+			color: #888888;
+			font-weight: bold;
+			font-size: 30px;
+
+			top: 50%;
+			/* gradient */
+
+			background: -webkit-linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+			background: -o-linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+			background: -moz-linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+			background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+		}
+	
+		#grad2 {
+			position: fixed;
+			width: 60%;
+			top: 0;
+			right: 20%;
+			bottom: 0;
+			left: 20%;
+			z-index: -1;
+
+			background: -webkit-linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+			background: -o-linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+			background: -moz-linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+			background: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+		}	
+	</style>
+
+</head>
+<body>
+	<div id="grad1">
+	This site will be posted <i>if</i> I decide put the CSS3 examples here.
+	</div>
+		
+	<div id="grad2">
+	</div>
+</body>
+</html>

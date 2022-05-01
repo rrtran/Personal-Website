@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!-- Font Size  -->
+<html>
+<head>
+	<title></title>
+	<style>
+		h1.pixel {
+			font-size: 40px;
+		}
+
+		h2.pixel {
+			font-size: 30px;
+		}
+	
+		p.pixel {
+			font-size: 14px;
+		}	
+
+
+		/* this method is compatible with all browsers */
+		body {
+			font-size: 100%;
+		}
+
+		h1.em {
+			font-size: 2.5em; /* 40px / 16 = 2.5em */
+		}
+
+		h2.em {
+			font-size: 1.85em; /* 30px/16 = 1.875em */
+		}
+
+		p.em {
+			font-size: 0.875em; /* 14px/16 = 0.875em */
+		}
+	</style>
+</head>
+<body>
+
+<h1 id="pixel">This is heading 1</h1>
+<h2 id="pixel">This is heading 2</h2>
+<p id="pixel">This is paragraph.</p>
+<p id="pixel">Specifying the font-size in px allows Internet Explorer 9, Firefox, Chrome,
+Opera, and Safari to resize the text.</p>
+<p id="pixel"><b>Note:</b> This example does not work in IE, prior to version 9.</p>
+
+
+
+<h1 id="em">This is heading 1</h1>
+<h2 id="em">This is heading 2</h2>
+<p id="em">This is a paragraph.</p>
+<p id="em">Specifying the font-size in em allows all major browsers to resize the text.
+Unfortunately, there is still a problem with older versions of IE. When resizing the text, it becomes larger/smaller than it should.</p>
+</body>
+</html>

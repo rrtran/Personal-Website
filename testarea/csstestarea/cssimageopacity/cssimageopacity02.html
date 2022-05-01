@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!-- Text in Transparent Box  -->
+<html>
+<head>
+	<title></title>
+	<style>
+		div.background {
+			background: url(//www.w3schools.com/css/klematis.jpg) repeat;
+			width: 500px;
+			height: 250px;
+			border: 2px solid black;
+		}
+	
+		div.transbox {
+			width: 400px;
+			height: 190px;
+			margin: 30px 50px;
+			background: #ffffff;
+			border: 1px solid black;
+			opacity: 0.666666;
+			filter: alpha(opacity=40);
+		}
+		
+		div.transbox p {
+			margin: 30px 40px;
+			font-weight: bold;
+			color: #000000;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="background">
+		<div class="transbox">
+			<p>This is some text that is placed in the transparent box.
+			This is some text that is placed in the transparent box.
+			This is some text that is placed in the transparent box.
+			This is some text that is placed in the transparent box.
+			This is some text that is placed in the transparent box.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

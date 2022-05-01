@@ -1,0 +1,4721 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ricky Region Tran">
+	<title>JS Tutorial Compilation</title>
+	<style>
+		body { background-color: #BBFFFF; }
+		#top { 
+			position: fixed; 
+			bottom: 20px;
+			right: 20px;
+		}
+
+		#jstut, #jsobj, #jsfunc, #jshtmldom, #jsbom, #jslib {
+			float: left;
+			
+		}
+        
+        #toc {
+            margin: 0 auto;
+        } 
+    
+        #toc li{
+            list-style-type:none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #toc a:link, #toc a:visited, #toc p {
+            display:block;
+            font-weight: bold;
+            color: #000F1A;
+            background-color: #70C7FF;
+            width:160px;
+            text-align: center;
+            padding: 4px;
+            text-decoration: none;
+        }
+
+        #toc p {
+            background-color: #33B4FF;
+            margin-bottom: 4px;
+        }
+        
+        #toc a:hover, #toc a:active {
+            background-color: #BBFFFF; 
+        }
+		#header, #body {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+
+<div id="header">
+<h1>This Page's Purpose</h1>
+<p> The stuff on this page comes from doing the JS exercises presented on <a href="http://www.w3schools.com/js/default.asp">W3Schools' JavaScript Tutorial</a>.
+While I was working through the tutorial, I figured the code could serve as a nice and quick way to reference basic JavaScript functionality.  
+Given the way that JS code can be viewed directly from the web browser, I worked through the tutorial on a single file, mostly.
+This way, I can quickly refer to how a particular JS functionality was coded via the source code and the browser's CTRL+F search feature.
+</p>
+</div>
+
+<!-- ToC -->
+<div id="toc">
+	<div id="jstut">
+        <ul id="tutorialList">
+            <li><p>JS Tutorial</p></li>
+	        <li><a href="#HOME">HOME</a></li>
+            <li><a href="#Introduction">Introduction</a><li>
+            <li><a href="#Where to">Where To</a><li>
+            <li><a href="#Output">Output</a><li>
+            <li><a href="#Syntax">Syntax</a><li>
+            <li><a href="#Statements">Statements</a><li>
+            <li><a href="#Variables">Variables</a><li>
+            <li><a href="#Data Types">Data Types</a><li>
+            <li><a href="#Objects">Objects</a><li>
+            <li><a href="#Functions">Functions</a><li>
+            <li><a href="#Scope">Scope</a><li>
+            <li><a href="#Events">Events</a><li>
+            <li><a href="#Strings">Strings</a><li>
+            <li><a href="#String Methods">String Methods</a><li>
+            <li><a href="#Numbers">Numbers</a><li>
+            <li><a href="#Number Methods">Number Methods</a><li>
+            <li><a href="#Operators">Operators</a><li>
+            <li><a href="#Math">Math</a><li>
+            <li><a href="#Dates">Dates</a><li>
+            <li><a href="#Date Methods">Date Methods</a><li>
+            <li><a href="#Arrays">Arrays</a><li>
+            <li><a href="#Array Methods">Array Methods</a><li>
+            <li><a href="#Booleans">Booleans</a><li>
+            <li><a href="#Type Conversion">Type Conversion</a><li>
+            <li><a href="#Comparisons">Comparisons</a><li>
+            <li><a href="#Conditions">Conditions</a><li>
+            <li><a href="#Switch">Switch</a><li>
+            <li><a href="#Loop For">Loop For</a><li>
+            <li><a href="#Errors">Errors</a><li>
+            <li><a href="#RegExp">RegExp</a><li>
+            <li><a href="#Hoisting">Hoisting</a><li>
+            <li><a href="#Strict Mode">Strict Mode</a><li>
+            <li><a href="#Conventions">Conventions</a><li>
+            <li><a href="#Performance">Performance</a><li>
+            <li><a href="#JSON">JSON</a><li>
+        </ul>
+	</div>
+
+	<div id="jsobj">
+        <ul>
+            <li><p>JS Objects</p></li>
+            <li><a href="#Object Definitions">Object Definitions</a></li>
+            <li><a href="#Object Properties">Object Properties</a></li>
+            <li><a href="#Object Prototypes">Object Prototypes</a></li>
+        </ul>
+	</div>
+
+	<div id="jsfunc">
+        <ul>
+            <li><p>JS Functions</p></li>
+            <li><a href="#Function Definitions">Function Definitions</a></li>
+            <li><a href="#Function Parameters">Function Parameters</a></li>
+            <li><a href="#Function Invocation">Function Invocation</a></li>
+            <li><a href="#Function Closures">Function Closures</a></li>
+        </ul>
+	</div>
+
+	<div id="jshtmldom">
+        <ul>
+            <li><p>JS HTML DOM</p></li>
+            <li><a href="#DOM Intro">DOM Intro</a></li>
+            <li><a href="#DOM Elements">DOM Elements</a></li>
+            <li><a href="#DOM HTML">DOM HTML</a></li>
+            <li><a href="#DOM CSS">DOM CSS</a></li>
+            <li><a href="#DOM Events">DOM Events</a></li>
+            <li><a href="#DOM EventListener">DOM EventListener</a></li>
+            <li><a href="#DOM Navigation">DOM Navigation</a></li>
+            <li><a href="#DOM Nodes">DOM Nodes</a></li>
+            <li><a href="#DOM Nodelist">DOM Nodelist</a></li>
+        </ul>
+	</div>
+
+	
+	<div id="jsbom">
+        <ul>
+            <li><p>JS Browser BOM</p></li>
+            <li><a href="#JS Window">JS Window</a></li>
+            <li><a href="#JS Screen">JS Screen</a></li>
+            <li><a href="#JS Location">JS Location</a></li>
+            <li><a href="#JS History">JS History</a></li>
+            <li><a href="#JS Navigator">JS Navigator</a></li>
+            <li><a href="#JS Popup Alert">JS Popup Alert</a></li>
+            <li><a href="#JS Timing">JS Timing</a></li>
+            <li><a href="#JS Cookies">JS Cookies</a><br></li>
+        </ul>
+	</div>
+
+	<div id="jslib">
+        <ul>
+            <li><p>JS Libraries</p></li>
+            <li><a href="#JS jQuery">JS jQuery</a></li>
+            <li><a href="#JS Prototype">JS Prototype</a></li>
+        </ul>
+	</div>
+</div>
+
+<div id="body">
+<hr>
+<!---------------------------->
+<hr>
+<h2 id="HOME">HOME</h2>
+<hr>
+<!---------------------------->
+
+<h1> My First JavaScript</h1>
+
+<p>Click Date to display current day, date, and time. </p>
+
+<button type="button" onclick="myFunctionA()">Date</button>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+function myFunctionA() {
+	document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="introduction">introduction</h2>
+<hr>
+<!---------------------------->
+
+<h1>My First JavaScript</h1>
+
+<p>JavaScript can change the content of an HTML element:</p>
+
+<button type="button" onclick="myFunctionB()">Click Me!</button>
+
+<!-- This text will change -->
+<p id="demo1">This is a demostration.</p>
+
+<script>
+	function myFunctionB() {
+		document.getElementById("demo1").innerHTML = "Hello JavaScript!";
+	}
+</script>
+
+<!-- This image will change -->
+<img id="myImage" onclick="changeImage()" src="http://www.w3schools.com/js/pic_bulboff.gif" alt="A lightbulb gif" width="100" height="180">
+
+<p>Click the light bulb to turn on/off the lighnt</p>
+<script>
+	function changeImage() {
+		var image = document.getElementById('myImage');
+		if (image.src.match("bulbon")) {
+			image.src = "http://www.w3schools.com/js/pic_bulboff.gif";
+		} else {
+			image.src = "http://www.w3schools.com/js/pic_bulbon.gif";
+		}
+	}
+</script>
+
+<!-- the font size will change -->
+<p id="demo2">JavaScript can change the style of an HTML element.</p>
+
+<button type="button" onclick="myFunctionC()">Click Me!</button>
+
+<script>
+	function myFunctionC() {
+		var x = document.getElementById("demo2");
+		x.style.fontSize = "25px";
+		x.style.color = "red";
+	}
+</script>
+<br><br>
+
+<!-- Java will validate this input-->
+<input id="numb" type="text">
+
+<button type="button" onclick="myFunction1()">Submit</button>
+
+<!-- this will change -->
+<p id="demo3"></p>
+
+<script>
+	function myFunction1() {
+		var x, text;
+		
+		// Get the value of input field with id="numb"
+
+		x = document.getElementById("numb").value;
+
+		// If x is Not a Number or less than one or greater than 10
+	
+		if (isNaN(x) || x < 1 || x > 10) {
+			text = "Input not valid";
+		} else {
+			text = "Input OK";
+		}
+		document.getElementById("demo3").innerHTML = text;
+	}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Where To">Where To</h2>
+<hr>
+<!---------------------------->
+
+<h1>My Web Page</h1>
+
+<p id="demo4">A Paragraph.</p>
+
+<button type="button" onclick="myFunction2()">Try it</button>
+
+<script>
+	function myFunction2() {
+		document.getElementById("demo4").innerHTML = "Paragraph changed.";		
+	}
+</script>
+
+<h1>My Web Page</h1>
+
+<p id="demo5">A Paragraph.</p>
+
+<button type="button" onclick="myFunction3()">Try it</button>
+
+<p><strong>Note:</strong> myFunction is stored in an external file called "myScript.js".<p>
+
+<script src="myScript.js"></script>
+
+<!---------------------------->
+<hr>
+<h2 id="Output">Output</h2>
+<hr>
+<!---------------------------->
+
+<h1>My First Web Page</h1>
+
+<p>My first paragraph.</p>
+
+<script>
+	document.write(Date());
+
+	function myFunction4() {
+		document.write(Date());
+	}
+</script><br>
+<!-- Javascript's write method will overwrite the entire page when invoked as a function code-->
+<button type="button" onclick="myFunction4()">Overwrite this entire page!</button>
+
+<!-- Writing the the console -->
+<script>
+	a = 5;
+	b = 6;
+	c = a + b;
+	console.log(c);
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Syntax">Syntax</h2>
+<hr>
+<!---------------------------->
+
+<!-- prints out literals -->
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<script>
+	document.getElementById("demo6").innerHTML = 123e5;
+	document.getElementById("demo7").innerHTML = "John Does" + 'John Doe';
+	document.getElementById("demo8").innerHTML = 5 * 10;
+</script>
+
+<!-- JavaScript variable -->
+
+<p id='demo9'></p>
+
+<script>
+	var x, length;
+	x = 5;
+	length = 10;
+	document.getElementById('demo9').innerHTML = length;
+</script>
+
+<!-- Arithmetic Operation -->
+
+<p id='demo10'></p>
+
+<script>
+	document.getElementById('demo10').innerHTML = (5*6) * 10;
+</script>
+
+<!-- Varaible assignments-->
+<script>
+	var length = 16;	// Number assigned by a number literal
+	var points = x * 10;	// Number assigned by an expression literal
+	var lastName = "Johnson"; // String assigned by a string literal
+	var cars = ["Saab", "Volvo", "BMW"]; // Array assigned by an array literal
+	var person = {firstName:"John", lastName:"Doe"};	// Object assigned by an object literal
+</script>
+
+<!-- JavaScript Functions -->
+<script>
+	function myFunction5(a, b) {
+		return a * b;		// returns the product of a and b
+	} 
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Statements">Statement</h2>
+<hr>
+<!---------------------------->
+<p id='demo11'></p>
+
+<script>
+	var stmt = "Ending variables with semicolon is OPTIONAL"
+	document.getElementById('demo11').innerHTML = stmt;
+</script>
+
+<p id="demo12"></p>
+
+<div id="demo13"></p>
+
+<script>
+	document.getElementById("demo12").innerHTML = "Hello Dolly.";
+	document.getElementById("demo13").innerHTML = "How are you?";
+</script>
+
+
+<p id="demo14"></p>
+
+<div id="demo15"></div>
+
+<p>
+	<button type="button" onclick="myFunction6()">Try it</button>
+</p>
+
+<script>
+	function myFunction6() {
+		document.getElementById("demo14").innerHTML = "Hello Dolly.";
+		document.getElementById("demo15").innerHTML = "How are you?";
+	}
+</script>
+
+<!-- Skipped comments because it's the same as comments in C/C++-->
+
+<!---------------------------->
+<hr>
+<h2 id="Variables">Varaibles</h2>
+<hr>
+<!---------------------------->
+
+<script>
+	var x = 5;
+	var y = 6;
+	var z = x + y;
+</script>
+
+<p id="demo16"></p>
+
+<script>
+	var x = 5;
+	var y = "John Doe";
+	var carName;
+	carName = "Volvo";
+	document.getElementById("demo16").innerHTML = carName;
+</script>
+
+<!-- Declaring multiple variables with one statement -->
+<script>
+	var lastName = "Doe", age = 30, job = "carpenter";
+	var lastName = "Doe",
+	age = 30;
+	job = "carpenter";
+</script>
+
+<!-- undefined variable value at declaration -->
+<script>
+	var x1; // x1 will have the value undefined
+</script>
+
+<!-- Variable redeclaration -->
+<script>
+	var var1 = "Volvo";
+	var var1; 	// var1 retains it's "Volvo" value
+</script>
+
+<!-- String concatenation -->
+<p id="demo17"></p>
+
+<script>
+	var y = "5";
+	var x = y + 2;
+	document.getElementById("demo17").innerHTML = x;
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Data Types">Data Types</h2>
+<hr>
+<!---------------------------->
+
+<p id="undefinedDemo"></p>
+
+<script>
+	var x; 			//x is undefined
+	var x = 5; 		//x is a Number
+	var x = "John"; //x is a String
+
+	var undefinedVar;
+	document.getElementById("undefinedDemo").innerHTML = undefinedVar;
+</script>
+
+<script>
+	var answer = "It's alright";
+	var answer = "He is called 'Johnny'";
+	var answer = 'He is called "Johnny"';
+</script>
+
+<p id="demo18"></p>
+
+<script>
+	var x1 = 34.00;
+	var x2 = 34;
+	var y = 123e5;
+	var z = 123e-5;
+	document.getElementById("demo18").innerHTML = z;	
+</script>
+
+<!-- booleans -->
+<p id="trueDemo"></p>
+
+<script>
+	var x = true;
+	var y = false;
+	document.getElementById("trueDemo").innerHTML = x;
+</script>
+
+<!-- Arrays -->
+<script>
+	var cars = ["Saab", "Volvo", "BMW"];
+</script>
+
+<!-- objects -->
+<p id="demo19"></p>
+
+<script>
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+	document.getElementById("demo19").innerHTML = person.firstName + " " + person.lastName + " " + person.age + " " + person.eyeColor;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Objects">Objects</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo20"></p>
+<p id="demo21"></p>
+<p id="demo22"></p>
+
+<script>
+	var person = {
+		firstName:	"John",
+		lastName :	"Doe",
+		age      :		50,
+		eyeColor :	"blue",
+		fullName :	function() {return this.firstName + " " + this.lastName}
+	};
+	
+	document.getElementById("demo20").innerHTML = person.firstName + person.lastName + person.age + person.eyeColor;
+	document.getElementById("demo21").innerHTML = person["firstName"] + person["lastName"] + person["age"] + person["eyeColor"];
+	document.getElementById("demo22").innerHTML = person.fullName();
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Functions">Functions</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo23"></p>
+
+<script>
+	function myFunction7(p1, p2) {
+		return p1 * p2;
+	}
+	document.getElementById("demo23").innerHTML = myFunction7(4,3);
+</script>
+
+<p id="demo24"></p>
+
+<script>
+	var a = myFunction7(4, 3); 		// Function is called, return value will end up in x
+	document.getElementById("demo24").innerHTML = a;
+</script>
+
+<p id="demo25"></p>
+
+<script>
+	function toCelcius(fahrenheit) {
+		return (5/9) * (fahrenheit - 32);
+	}
+	
+	document.getElementById("demo25").innerHTML = toCelcius(32);
+</script>
+
+<p id="demo26"></p>
+
+<script>
+	document.getElementById("demo26").innerHTML = "The temperature is " + toCelcius(32) + " Centigrade";
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Scope">Scope</h2>
+<hr>
+<!---------------------------->
+
+<p> A local variable can only be accessed from within the function where it was declared. </p>
+
+<p id="demo27"></p>
+
+<!-- Local variable carName1 cannot be accessed outside of myFunction8()-->
+<script>
+	myFunction8();
+	document.getElementById("demo27").innerHTML = 
+	" I can display " + typeof carName1;
+	function myFunction8() {
+		var carName1 = "Volvo";
+	}
+</script>
+
+<!-- Global Varaible -->
+<p> A GLOBAL variable can be accessed from any script or function.</p>
+
+<p id="demo28"></p>
+
+<script>
+	var carName = "Volvo";
+	myFunction9();
+
+	function myFunction9() {
+		document.getElementById("demo28").innerHTML =
+		"I can display " + carName;
+	}
+</script>
+
+<!-- Automatically GLOBAL -->
+<p> If you assign a value to a variable that has not been declared,
+it will automatically become a GLOBAL VARIABLE: </p>
+
+<p id="demo29"></p>
+
+<script>
+	myFunction10();
+	document.getElementById("demo29").innerHTML = 
+	"I can display " + carName3;
+
+	function myFunction10() {
+		carName3 = "Volvo";
+	}
+</script>
+
+
+<p id="demo30"></p>
+
+<script>
+	Hello = "I just defined a variable without using the 'var' keyword";
+	document.getElementById("demo30").innerHTML = Hello;
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Events">Events</h2>
+<hr>
+<!---------------------------->
+
+<button onclick="getElementById('demo31').innerHTML=Date()">The time is?</button>
+
+<p id="demo31"></p>
+
+<button onclick="this.innerHTML=Date()">The time is?</button>
+ 
+<p>Click the button to display the date.</p>
+
+<button onclick="displayDate()">The time is?</button>
+
+<script>
+	function displayDate() {
+		document.getElementById("demo32").innerHTML = Date();
+	}
+</script>
+
+<p id="demo32"></p>
+
+<!---------------------------->
+<hr>
+<h2 id="Strings">Strings</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo33"></p>
+
+<script>
+	var carName1 = "Volvo XC60";
+	var carName2 = "Volvo XC60";
+	var answer1 = "It's alright";
+	var answer2 = "He is called 'Johnny'";
+	var answer3 = 'He is called "Johnny"';
+
+	document.getElementById("demo33").innerHTML = 
+	carName1 + "<br>" +
+	carName2 + "<br>" +
+	answer1 + "<br>" +
+	answer2 + "<br>" +
+	answer3;
+</script>
+
+<p id="demo34"></p>
+
+<script>
+	var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	document.getElementById("demo34").innerHTML = txt.length;
+</script>
+
+<p id="demo35"></p>
+
+<script>
+	document.getElementById("demo35").innerHTML = 
+	"\'<br> \
+	\"<br> \
+	\\<br> \
+	\n newline<br> \
+	\r carriage return<br> \
+	\t tab<br> \
+	a\b backspace<br> \
+	\f formfeed<br>";
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="String Methods">String Methods</h2>
+<hr>
+<!---------------------------->
+
+<!-- IndexOf() -->
+<p id="demo36a">Please locate where 'locate occurs!.</p>
+
+<button onclick="myFunction11()">Try it</button>
+
+<p id="demo36b"></p>
+
+<script>
+	function myFunction11() {
+		var str = document.getElementById("demo36a").innerHTML;
+		var pos = str.indexOf("locate");
+		document.getElementById("demo36b").innerHTML = pos;
+	}
+</script>
+
+<!-- lastIndexOf() -->
+<p id="demo37a">Please locate where 'locate' occurs!.</p>
+
+<button onclick="myFunction12()">Try it</button>
+
+<p id="demo37b"></p>
+
+<script>
+	function myFunction12() {
+		var str = document.getElementById("demo37a").innerHTML;
+		var pos = str.lastIndexOf("locate");
+		document.getElementById("demo37b").innerHTML = pos;
+	}
+</script>
+
+<!-- search() -->
+<p id="demo38a">Please locate where 'locate occurs!.</p>
+
+<button onclick="myFunction13()">Try it</button>
+
+<p id="demo38b"></p>
+
+<script>
+	function myFunction13() {
+		var str = document.getElementById("demo38a").innerHTML;
+		var pos = str.search("locate");
+		document.getElementById("demo38b").innerHTML = pos;
+	}
+</script>
+
+<!-- slice() -->
+<p>The slice() method extracts a part of a string and returns the extracted parts in a new string:</p>
+
+<p id="demo39"></p>
+<p id="demo40"></p>
+
+<script>
+	var str = "Apple, Banana, Kiwi";
+	document.getElementById("demo39").innerHTML = str.slice(7, 13);
+	document.getElementById("demo40").innerHTML = str.slice(7);
+</script>
+
+
+<!-- substring() -->
+<p>The substring() method extract a part of a string
+and returns the extracted parts in a new string:</p>
+
+<p id="demo41"></p>
+
+<script>
+	var str = "Apple, Banana, Kiwi";
+	document.getElementById("demo41").innerHTML = str.substring(7, 13);
+</script>
+
+<!-- substr() -->
+<p>The substr() method extract a part of a string
+and returns the extracted parts in a new string:</p>
+
+<p id="demo42"></p>
+
+<script>
+	var str = "Apple, Banana, Kiki";
+	document.getElementById("demo42").innerHTML = str.substr(7,6);
+</script>
+
+<!-- replace() -->
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction14()">Try it</button>
+
+<p id="demo43">Please visit Microsoft!</p>
+
+<script>
+	function myFunction14() {
+		var str = document.getElementById("demo43").innerHTML;
+		var txt = str.replace("Microsoft", "W3Schools");
+		document.getElementById("demo43").innerHTML = txt;
+	}
+</script>
+
+<!-- toUpperCase() and toLowerCase() -->
+<p>Convert string to upper/lower case:</p>
+
+<button onclick="myFunction15()">Try it</button>
+<button onclick="myFunction16()">Try it</button>
+
+<p id="demo44">Hello World!</p>
+
+<script>
+	function myFunction15() {
+		var text = document.getElementById("demo44").innerHTML;
+		document.getElementById("demo44").innerHTML = text.toUpperCase();
+	}
+	
+	function myFunction16() {
+		var text = document.getElementById("demo44").innerHTML;
+		document.getElementById("demo44").innerHTML = text.toLowerCase();
+	}
+</script>
+
+
+<!-- concat() -->
+<p>The concat() method joins two or more strings:</p>
+
+<p id="demo45"></p>
+
+<script>
+	var text1 = "Hello";
+	var text2 = "World";
+	document.getElementById("demo45").innerHTML = text1.concat(" ", text2);
+</script>
+
+<!-- charAt() and charCodeAt() -->
+<p>The charAt() method returns the character at a given position in a string:</p>
+
+<p id="demo46"></p>
+
+<script>
+	var str = "HELLO WORLD";
+	document.getElementById("demo46").innerHTML = str.charAt(0);
+</script>
+
+<p>The charCodeAt() method returns the character at a given position in a string:</p>
+
+<p id="demo47"></p>
+
+<script>
+	var str = "HELLO WORLD";
+	document.getElementById("demo47").innerHTML = str.charCodeAt(0);
+</script>
+
+<!-- split() -->
+<p>Click "Try it" to display the first array element, after a string split.</p>
+
+<button onclick="myFunction17()">Try it</button>
+
+<p id="demo48"></p>
+
+<script>
+	function myFunction17() {
+		var str = "a,b,c,d,e,f";
+		var arr = str.split(",");
+		document.getElementById("demo48").innerHTML = arr[0];
+	}	
+</script>
+
+<p id="demo49"></p>
+
+<script>
+	var str = "Hello";
+	var arr = str.split("");
+	var text = "";
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		text += arr[i] + "<br>"
+	}
+	document.getElementById("demo49").innerHTML = text;
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Numbers">Numbers</h2>
+<hr>
+<!---------------------------->
+
+<p>Integers are considered accurate up to 15 digits.</p>
+
+<button onclick="myFunction18()">Try it</button>
+
+<p id="demo50"></p>
+
+<script>
+	function myFunction18() {
+		var x = 999999999999999;
+		var y = 9999999999999999;
+		document.getElementById("demo50").innerHTML = x + "<br>" + y;
+	}
+</script>
+
+<p>Floating point arithmetic is not always 100% accurate.</p>
+
+<button onclick="myFunction19()">Try it</button>
+
+<p id="demo51"></p>
+
+<script>
+	function myFunction19() {
+		x = 0.2 + 0.1;
+		document.getElementById("demo51").innerHTML = "0.2 + 0.1 = " + x;
+	}
+</script>
+
+<p>Numeric constants, preceded by 0x, are interpreted as hexadecimal.</p>
+
+<button onclick="myFunction20()">Try it</button>
+
+<p id="demo52"></p>
+
+<script>
+	function myFunction20() {
+		document.getElementById("demo52").innerHTML = "0xFF = " + 0xFF;
+	}	
+</script>
+
+
+<p>The toString() method can output numbers as base 16 (hex), base 8 (octal), or base 2 (binary).</p>
+
+<p id="demo53"></p>
+
+<button onclick="myFunction21()">Try it</button>
+
+<script>
+	function myFunction21() {
+		var myNumber = 128;
+		document.getElementById("demo53").innerHTML = "128 = " +
+		myNumber + " Decimal, " +
+		myNumber.toString(16) + " Hexadecimal, " +
+		myNumber.toString(8) + " Octal, " +
+		myNumber.toString(2) + " Binary."
+	}
+</script>
+
+
+<p>Infinity is returned if you calculate a number outside the largest possible number.</p>
+
+<button onclick="myFunction22()">Try it</button>
+
+<p id="demo54"></p>
+
+<script>
+	function myFunction22() {
+		var myNumber = 2;
+		var txt = "";
+		while (myNumber != Infinity) {
+			myNumber *= myNumber;
+			txt = txt + myNumber + "<br>";
+		}
+		document.getElementById("demo54").innerHTML = txt;
+	}
+</script>
+
+
+<p>Division by zero also generates Infinity.</p>
+
+<button onclick="myFunction23()">Try it</button>
+
+<p id="demo55"></p>
+
+<script>
+	function myFunction23() {
+		var x = 2/0;
+		var y = -2/0;
+		document.getElementById("demo55").innerHTML = x + "<br>" + y;
+	}
+</script>
+
+<p>Infinity is a Number</p>
+
+<button onclick="myFunction24()">Try it</button>
+
+<p id="demo56"></p>
+
+<script>
+	function myFunction24() {
+		document.getElementById("demo56").innerHTML = typeof Infinity;
+	}
+</script>
+
+
+<p>A number divided by a string is not a number</p>
+<p>A nuumber divided by a numeric string is a number</p>
+
+<button onclick="myFunction25()">Try it</button>
+
+<p id="demo57"></p>
+
+<script>
+	function myFunction25() {
+		var x = 1000 / "Apple";
+		var y = 1000 / "10";
+		document.getElementById("demo57").innerHTML = x + "<br>" + y;
+	}
+</script>
+
+
+<p id="demo58"></p>
+
+<script>
+	var x = 123;
+	var y = new Number(123);
+
+	document.getElementById("demo58").innerHTML = typeof x + "<br>" + typeof y;
+</script>
+
+
+<p id="demo59"></p>
+
+<script>
+	var x = 123;				// x is a number
+	var y = new Number(123);	// y is an object
+	document.getElementById("demo59").innerHTML = x === y;
+</script>
+
+<p id="demo60"></p>
+
+<script>
+	var x = Number.MAX_VALUE;
+	var y = Number.MIN_VALUE;
+	var z = Number.NEGATIVE_INFINITY;
+	var a = Number.NaN;
+	var b = Number.POSITIVE_INFINITY;
+	document.getElementById("demo60").innerHTML = x + "<br>" +
+	y + "<br>" +
+	z + "<br>" +
+	a + "<br>" +
+	b + "<br>";
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Number Methods">Number Methods</h2>
+<hr>
+<!---------------------------->
+
+<p>The toString() method converts a number to a string.</p>
+
+<p id="demo61"></p>
+
+<script>
+	var x = 123;
+	document.getElementById("demo61").innerHTML =
+		x.toString() + "<br>" +
+		(123).toString() + "<br>" +
+		(100 + 23).toString() + "<br>";
+</script>
+
+
+<p>The toExpoenential() method returns a string, with the number rounded and written
+using exponential notation</p>
+
+<p>An optional param defines the number of digits behind the decimal point.</p>
+
+<p id="demo62"></p>
+
+<script>
+	var x = 9.656;
+	document.getElementById("demo62").innerHTML = 
+		x.toExponential() + "<br>" +
+		x.toExponential(2) + "<br>" +
+		x.toExponential(4) + "<br>" +
+		x.toExponential(6);
+</script>
+
+<p>The toFixed() method rounds a number to a given number of digits.</p>
+<p>For working with money, toFixed(2) is perfect.</p>
+
+<p id="demo63"></p>
+
+<script>
+	var x = 9.656;
+	document.getElementById("demo63").innerHTML =
+		x.toFixed(0) + "<br>" +
+		x.toFixed(2) + "<br>" +
+		x.toFixed(4) + "<br>" +
+		x.toFixed(6);
+</script>
+
+
+<p>The toPrecision() method returns a string, with a number written with a specified length:</p>
+
+<p id="demo64"></p>
+
+<script>
+	var x = 9.656;
+	document.getElementById("demo64").innerHTML =
+		x.toPrecision() + "<br>" +
+		x.toPrecision(2) + "<br>" +
+		x.toPrecision(4) + "<br>" +
+		x.toPrecision(6);
+</script>
+
+
+<p>The global JavaScript function Number() converts variables to numbers:</p>
+
+<p id="demo65"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo65").innerHTML =
+		Number(true) + "<br>" +
+		Number(false) + "<br>" +
+		Number(d) + " (" + d + ")" + "<br>" +
+		Number("	10") + "<br>" +
+		Number("10	") + "<br>" +
+		Number("10 6");
+</script>
+
+
+<p>The global JavaScript function parseInt() converts strings to numbers:</p>
+
+<p id="demo66"></p>
+
+<script>
+	document.getElementById("demo66").innerHTML = 
+		parseInt("10") + "<br>" +
+		parseInt("10.33") + "<br>" +
+		parseInt("10 6") + "<br>" +
+		parseInt("10 year") + "<br>" +
+		parseInt("years 10");
+</script>
+
+
+<p>The global JavaScript function parseFloat() converts strings to numbers:</p>
+
+<p id="demo67"></p>
+
+<script>
+	document.getElementById("demo67").innerHTML =
+		parseFloat("10") + "<br>" +
+		parseFloat("10.33") + "<br>" +
+		parseFloat("10 6") + "<br>" +
+		parseFloat("10 years") + "<br>" +
+		parseFloat("years 10");
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Operators">Operators</h2>
+<hr>
+<!---------------------------->
+
+<p>y = 5, do calculations, and display x:</p>
+
+<button onclick="myFunction25()">Try add</button>
+<button onclick="myFunction26()">Try Subtract</button>
+<button onclick="myFunction27()">Try Multiply</button>
+<button onclick="myFunction28()">Try Divide</button>
+<button onclick="myFunction29()">Try Mod</button>
+<button onclick="myFunction30()">Try pre-increment</button>
+<button onclick="myFunction31()">Try post-increment</button>
+<button onclick="myFunction32()">Try pre-decrement</button>
+<button onclick="myFunction33()">Try post-decrement</button>
+
+<p id="demo68a"></p>
+<p id="demo68b"></p>
+
+<script>
+	function myFunction25() {
+		var y = 5;
+		var x = y + 2;
+		document.getElementById("demo68a").innerHTML = x;
+	}
+	function myFunction26() {
+		var y = 5;
+		var x = y - 2;
+		document.getElementById("demo68a").innerHTML = x;
+	}
+	function myFunction27() {
+		var y = 5;
+		var x = y * 2;
+		document.getElementById("demo68a").innerHTML = x;
+	}
+	function myFunction28() {
+		var y = 5;
+		var x = y / 2;
+		document.getElementById("demo68a").innerHTML = x;
+	}
+	function myFunction29() {
+		var y = 5;
+		var x = y % 2;
+		document.getElementById("demo68a").innerHTML = x;
+	}
+	function myFunction30() {
+		var y = 5;
+		var x = ++y;
+		document.getElementById("demo68a").innerHTML = y;
+		document.getElementById("demo68b").innerHTML = x;
+	}
+	function myFunction31() {
+		var y = 5;
+		var x = y++;
+		document.getElementById("demo68a").innerHTML = y;
+		document.getElementById("demo68b").innerHTML = x;
+	}
+	function myFunction32() {
+		var y = 5;
+		var x = --y;
+		document.getElementById("demo68a").innerHTML = y;
+		document.getElementById("demo68b").innerHTML = x;
+	}
+	function myFunction33() {
+		var y = 5;
+		var x = y--;
+		document.getElementById("demo68a").innerHTML = y;
+		document.getElementById("demo68b").innerHTML = x;
+	}
+</script>
+
+
+<button onclick="myFunction34()">Try Assign</button>
+<button onclick="myFunction35()">Try Add</button>
+<button onclick="myFunction36()">Try Subtract</button>
+<button onclick="myFunction37()">Try Multiply</button>
+<button onclick="myFunction38()">Try Divide</button>
+<button onclick="myFunction39()">Try Mod</button>
+
+<p id="demo69"></p>
+
+<script>
+	function myFunction34() {
+		var y = 5;
+		var x = y;
+		document.getElementById("demo69").innerHTML = x;
+	}
+	function myFunction35() {
+		var y = 5;
+		var x = 10;
+		x += y;
+		document.getElementById("demo69").innerHTML = x; 
+	}
+	function myFunction36() {
+		var x = 10;
+		var y = 5;
+		x -= 5;
+		document.getElementById("demo69").innerHTML = x;
+	}
+	function myFunction37() {
+		var x = 10;
+		var y =5;
+		x *= y;
+		document.getElementById("demo69").innerHTML = x;
+	}
+	function myFunction38() {
+		var x = 10;
+		var y = 5;
+		x /= y;
+		document.getElementById("demo69").innerHTML = x;
+	}
+	function myFunction39() {
+		var x = 10;
+		var y = 5;
+		x %= y;
+		document.getElementById("demo69").innerHTML = x;
+	}
+</script>
+
+
+
+<p>The + operator concatenates (adds) strings.</p>
+
+<button onclick="myFunction40()">Try it</button>
+
+<p id="demo70"></p>
+
+<script>
+	function myFunction40() {
+		var txt1 = "What a very";
+		var txt2 = "nice day";
+		document.getElementById("demo70").innerHTML = txt1 + txt2;
+	}
+</script>
+
+
+<p>The bitwise oeprator & returns a logical AND.</p>
+
+<button onclick="myFunction41()">Try bitwise AND</button>
+<button onclick="myFunction42()">Try bitwise OR</button>
+<button onclick="myFunction43()">Try bitwise NOT</button>
+<button onclick="myFunction44()">Try bitwise XOR</button>
+<button onclick="myFunction45()">Try bitwise LShift</button>
+<button onclick="myFunction46()">Try bitwise RShift</button>
+
+<p id="demo71"></p>
+
+<script>
+	function myFunction41() {
+		document.getElementById("demo71").innerHTML = 5 & 1;
+	}
+	function myFunction42() {
+		document.getElementById("demo71").innerHTML = 5 | 1;
+	}
+	function myFunction43() {
+		document.getElementById("demo71").innerHTML = ~5;
+	}
+	function myFunction44() {
+		document.getElementById("demo71").innerHTML = 5 ^ 1;
+	}
+	function myFunction45() {
+		document.getElementById("demo71").innerHTML = 5 << 1;
+	}
+	function myFunction46() {
+		document.getElementById("demo71").innerHTML = 5 >> 1;
+	}
+</script>
+
+
+<p>The typeof operator returns the type of a varaible or expression.</p>
+
+<button onclick="myFunction47()">Try it</button>
+
+<p id="demo72"></p>
+
+<script>
+	function myFunction47() {
+	var x = 5; 
+	var y = "John"; 
+	document.getElementById("demo72").innerHTML =
+		typeof x + "<br>" +
+		typeof 5 + "<br>" +
+		typeof (5+5) + "<br>" +
+		typeof y + "<br>" +
+		typeof "5" + "<br>" +
+		typeof "John" + "<br>" +
+		typeof ("John" + " " + "Doe") + "<br>" +
+		typeof false + "<br>" +
+		typeof (5 > 3) + "<br>" +
+		typeof (3 > 5) + "<br>" +
+		typeof [1,2,3,4] + "<br>" +
+		typeof {name:'john', age:34};
+	}
+</script>
+
+
+<button onclick="myFunction49()">Try it</button>
+<button onclick="myFunction48()">Try it</button>
+
+<p id="demo73"></p>
+
+<script>
+	function myFunction48() {
+		delete person.age;
+		document.getElementById('demo73').innerHTML = person.age;
+	}
+	function myFunction49() {
+		person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"Blue"};
+		document.getElementById("demo73").innerHTML = person.age;
+	}
+</script>
+
+
+
+<p>The typeof oeprator returns the type of variable or expression</p>
+
+<button onclick="myFunction50()">Try it</button>
+
+<p id="demo74"></p>
+
+<script>
+	function myFunction50() {
+		var y = "5";
+		var x = + y;
+		document.getElementById("demo74").innerHTML =
+		typeof y + "<br>" + typeof x;
+	}
+</script>
+
+
+<button onclick="myFunction51()">Try it</button>
+
+<p id="demo75"></p>
+
+<script>
+	function myFunction51() {
+		var y = "John";
+		var x = + y;
+		document.getElementById("demo75").innerHTML = 
+		typeof x + "<br>" + x;
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Math">Math</h2>
+<hr>
+<!---------------------------->
+
+<p>Math.random() returns a random number between 0 and 1.</p>
+
+<button onclick="myFunction52()">Try it</button>
+
+<p id="demo76"></p>
+
+<script>
+	function myFunction52() {
+		document.getElementById("demo76").innerHTML = Math.random();
+	}
+</script>
+
+
+<p>Math.min() return the lowest value.</p>
+
+<button onclick="myFunction53()">Try it</button>
+<button onclick="myFunction54()">Try it</button>
+
+<p id="demo77"></p>
+
+<script>
+	function myFunction53() {
+		document.getElementById("demo77").innerHTML =
+		Math.min(0, 150, 30, 20, -8);
+	}
+	function myFunction54() {
+		document.getElementById("demo77").innerHTML =
+		Math.max(0, 150, 30, 20, -8);
+	}
+</script>
+
+
+<p>Math.round() rounds a number to its nearest integer.</p>
+
+<button onclick="myFunction55()">Try it</button>
+
+<p id="demo78"></p>
+
+<script>
+	function myFunction55() {
+		document.getElementById("demo78").innerHTML = Math.round(4.4);
+	}	
+</script>
+
+
+<p>Math.floor() combined with Math.random() can return random integers.</p>
+
+<button onclick="myFunction58()">Try it</button>
+
+<p id="demo79"></p>
+
+<script>
+	function myFunction58() {
+		document.getElementById("demo79").innerHTML =
+			Math.floor(Math.random() * 11);
+	}		
+</script>
+
+
+<p>Math constants are E, PI, SQRT2, SQRT1_2, LN2, LN10, LOG2E, LOG10E</p>
+
+<button onclick="myFunction59()">Try it</button>
+
+<p id="demo80"></p>
+
+<script>
+	function myFunction59() {
+		document.getElementById("demo80").innerHTML =
+			Math.E + "<br>" +
+			Math.PI + "<br>" +
+			Math.SQRT2 + "<br>" +
+			Math.SQRT1_2 + "<br>" +
+			Math.LN2 + "<br>" +
+			Math.LN10 + "<br>" +
+			Math.LOG2E + "<br>" + 
+			Math.LOG10E + "<br>";
+	}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Dates">Dates</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo81"></p>
+
+<script>
+	document.getElementById("demo81").innerHTML = Date();
+</script>
+
+
+<p id="demo82"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo82").innerHTML = d;
+</script>
+
+
+<p id="demo83"></p>
+
+<script>
+	var d = new Date("October 13, 2014 11:13:00");
+	document.getElementById("demo83").innerHTML = d;
+</script>
+
+
+<p id="demo84"></p>
+
+<script>
+	var d = new Date(0);
+	document.getElementById("demo84").innerHTML = d;
+</script>
+
+
+<p id="demo85"></p>
+
+<script>
+	var d = new Date(99, 5, 24, 11, 33, 30, 0);
+	document.getElementById("demo85").innerHTML = d;
+</script>
+
+
+<p id="demo86"></p>
+
+<script>
+	var d = new Date(99, 5, 24);
+	document.getElementById("demo86").innerHTML = d;
+</script>
+
+
+
+<p>The toUTCString() method converts a date to a UTC string (date display standard).</p>
+
+<p id="demo87"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo87").innerHTML = d.toUTCString();
+</script>
+
+
+<p id="demo88"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo88").innerHTML = d.toDateString();
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Date Methods">Date Methods</h2>
+<hr>
+<!---------------------------->
+
+
+<p>The internal clock in JavaScript starts at midnight January 1, 1970. </p>
+<p>The getTime() function returns the number of milliseconds since then:</p>
+
+<p id="demo89"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo89").innerHTML = d.getTime();
+</script>
+
+
+<p>The getFullYear() method returns the full year of a date:</p>
+
+<p id="demo90"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo90").innerHTML = d.getFullYear();
+</script>
+
+
+<p>The getDay() function returns the weekday as a number:</p>
+
+<p id="demo91"></p>
+
+<script>
+	var d = new Date();
+	document.getElementById("demo91").innerHTML = d.getDay();
+</script>
+
+
+<p>You can use an array to display the name of the weekday:</p>
+
+<p id="demo92"></p>
+
+<script>
+	var d = new Date();
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fridsay", "Saturdsay"];
+	document.getElementById("demo92").innerHTML = days[d.getDay()];
+</script>
+
+
+<p>The setFullYear() method ests a date object to a special date.</p>
+
+<p>Remember that JavaScript counts months from 0 to 11. Month 10 is November.</p>
+
+<p id="demo93"></p>
+
+<script>
+	var d = new Date();
+	d.setFullYear(2020, 0, 14);
+	document.getElementById("demo93").innerHTML = d;
+</script>
+
+
+<p>The setDate() method sets the day of a month.</p>
+
+<p id="demo94"></p>
+
+<script>
+	var d = new Date();
+	d.setDate(15);
+	document.getElementById("demo94").innerHTML = d;
+</script>
+
+
+<p>The setDate() method can be used to add days to a date.</p>
+
+<p id="demo95"></p>
+
+<script>
+	var d = new Date();
+	d.setDate(d.getDate() + 70);
+	document.getElementById("demo95").innerHTML = d;
+</script>
+
+
+<p>Date.parse() returns the number of milliseconds between the date and January 1,
+1980:</p>
+
+<p id="demo96"></p>
+<p id="demo97"></p>
+
+<script>
+	var msec = Date.parse("March 21, 2012");
+	var d = new Date(msec);
+	document.getElementById("demo96").innerHTML = msec;
+	document.getElementById("demo97").innerHTML = d;
+</script>
+
+
+<p id="demo98"></p>
+
+<script>
+	var today, someday, text;
+	today = new Date();
+	someday = new Date();
+	someday.setFullYear(2100, 0, 14);
+
+	if (someday > today) {
+		text = "Today is before January 14, 2100.";
+	} else {
+		text = "Today is after January 14, 2100.";
+	}
+	document.getElementById('demo98').innerHTML = text;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Arrays">Arrays</h2>
+<hr>
+<!---------------------------->
+
+<p id = "demo99"></p>
+
+<script>
+	var cars = ["Saab", "Volvo", "BMW"];
+	document.getElementById("demo99").innerHTML = cars;
+</script>
+
+
+<p id="demo100"></p>
+
+<script>
+	var cars = new Array("Saab", "Volvo", "BMW");
+	document.getElementById("demo100").innerHTML = cars[0];
+</script>
+
+
+<p>The length property returns the length of an array.</p>
+
+<p id="demo101"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo101").innerHTML = fruits.length;
+</script>
+
+
+<p>The length proerpty provides an easy way to append a new element to the array
+without using the push() method.</p>
+
+<button onclick="myFunction60()">Try it</button>
+
+<p id="demo102"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById('demo102').innerHTML = fruits;
+
+	function myFunction60() {
+		fruits[fruits.length] = "Kiwi";
+		document.getElementById("demo102").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The best way to loop through an array is using a for loop: </p>
+
+<button onclick="myFunction61()">Try it</button>
+
+<p id="demo103"></p>
+
+<script>
+	function myFunction61() {
+		var index;
+		var text = "<ul>";
+		var fruits = ["Banana", "Orange", "Apple", "Mango"];
+		for (index = 0; index < fruits.length; index++) {
+			text += "<li>" + fruits[index] + "</li>";
+		}
+		text += "</ul>";
+		document.getElementById("demo103").innerHTML = text;
+	}
+</script>
+
+
+<p>Avoid using new Array(). Use [] instead.</p>
+
+<p id="demo104"></p>
+
+<script>
+	//var points = new Array(40,100,1,5,25,10);
+	var points = [40, 100, 1, 5, 25, 10];
+	document.getElementById("demo104").innerHTML = points[0];
+</script>
+
+<p>Using Array() can produce nasty side effects</p>
+
+<p id="demo105"></p>
+
+<script>
+	var points = new Array(40);
+	document.getElementById("demo105").innerHTML = points[0];
+</script>
+
+
+<p>The type of operator, when used on an array, returns object</p>
+
+<p id="demo106"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo106").innerHTML = typeof fruits;
+</script>
+
+
+<p>This "home made" function, when used on an array, returns true.</p>
+
+<p id="demo107"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo107").innerHTML = isArray(fruits);
+
+	function isArray(myArray) {
+		return myArray.constructor.toString().indexOf("Array") > -1;
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Array Methods">Array Methods</h2>
+<hr>
+<!---------------------------->
+
+<p>The valueOf() method returns an array as a comma sparated string.</p>
+
+<p id="demo108"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo108").innerHTML = fruits.valueOf();
+</script>
+
+<p>The toString() method returns an array as a comma separated string.</p>
+
+<p id="demo109"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo109").innerHTML = fruits.toString();
+</script>
+
+
+<p>The join() method joins array elements into a string.</p>
+
+<p id="demo110"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo110").innerHTML = fruits.join(" * ");
+</script>
+
+
+<p>The pop() method removes the last element from an array.</p>
+
+<button onclick="myFunction63()">Try it</button>
+
+<p id="demo111"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo111").innerHTML = fruits;
+
+	function myFunction63() {
+		fruits.pop();
+		document.getElementById("demo111").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The push method appends a new element to an array.</p>
+
+<button onclick="myFunction64()">Try it</button>
+
+<p id="demo112"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo112").innerHTML = fruits;
+
+	function myFunction64() {
+		fruits.push("Kiwi");
+		document.getElementById("demo112").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The shift() method removes (shifts) the first element of an array.</p>
+
+<button onclick="myFunction65()">Try it</button>
+
+<p id="demo113"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo113").innerHTML = fruits;
+
+	function myFunction65() {
+		fruits.shift();
+		document.getElementById("demo113").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The unshift() method adds new elements to the beginning of an array.</p>
+
+<button onclick="myFunction66()">Try it</button>
+
+<p id="demo114"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo114").innerHTML = fruits;
+	
+	function myFunction66() {
+		fruits.unshift("Lemon");
+		document.getElementById("demo114").innerHTML = fruits;
+	}
+</script>
+
+
+<p>Array elements are accessed using their index number.</p>
+
+<button onclick="myFunction67()">Try it</button>
+
+<p id="demo115"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo115").innerHTML = fruits;
+	
+	function myFunction67() {
+		fruits[0] = "Kiwi";
+		document.getElementById("demo115").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The splice() method adds new elements to an array.</p>
+
+<button onclick="myFunction68()">Try it</button>
+
+<p id="demo116"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo116").innerHTML = fruits;
+
+	function myFunction68() {
+		fruits.splice(2, 0, "Lemon", "Kiwi");
+		document.getElementById("demo116").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The splice() method can be used to remove array elements</p>
+
+<button onclick="myFunction69()">Try it</button>
+
+<p id="demo117"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo117").innerHTML = fruits;
+	
+	function myFunction69() {
+		fruits.splice(0, 1);
+		document.getElementById("demo117").innerHTML = fruits;
+	}
+</script>
+
+
+<p>The sort() method sorts an array alphabetically.</p>
+
+<button onclick="myFunction70()">Try it</button>
+
+<p id="demo118"></p>
+
+<script>
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo118").innerHTML = fruits;
+	
+	function myFunction70() {
+		fruits.sort();
+		document.getElementById("demo118").innerHTML = fruits;
+	}
+</script>
+
+<p>The sort() method sorts an array alphabetically.</p>
+
+<button onclick="myFunction71()">Try it</button>
+
+<p id="demo119"></p>
+
+<script>
+	var fruits =["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo119").innerHTML = fruits;
+
+	function myFunction71() {
+		fruits.sort();
+		fruits.reverse();
+		document.getElementById("demo119").innerHTML = fruits;
+	}
+</script>
+
+
+<p>Click the button to sort the array in ascending order.</p>
+
+<button onclick="myFunction72()">Try it</button>
+
+<p id="demo120"></p>
+
+<script>
+	var points = [40, 100, 1, 5, 25, 10];
+	document.getElementById("demo120").innerHTML = points;
+
+	function myFunction72() {
+		points.sort(function(a,b){return a-b});
+		document.getElementById("demo120").innerHTML = points;
+	}
+</script>
+
+
+<p>Click the button to sort the array in descending order.</p>
+
+<button onclick="myFunction73()">Try it</button>
+
+<p id="demo121"></p>
+
+<script>
+	var points = [40, 100, 1, 5, 25, 10];
+	document.getElementById("demo121").innerHTML = points;
+
+	function myFunction73() {
+		points.sort(function(a,b){return b-a});
+		document.getElementById('demo121').innerHTML = points[0];
+	}
+</script>
+
+
+<p>The lowest number is <span id="demo122"></span></p>
+
+<script>
+	var points = [40, 100, 1, 5, 25, 10];
+	points.sort(function(a,b){return a-b;});
+	document.getElementById("demo122").innerHTML = points[0];
+</script>
+
+
+<p>Click "Try it" to display all my children:</p>
+
+<button onclick="myFunction74()">Try it</button>
+
+<p id="demo123"></p>
+
+<script>
+	function myFunction74() {
+		var myGirls = ["Cecilie", "Lone"];
+		var myBoys = ["Emil", "Tobias", "Linus"];
+		var myChildren = myGirls.concat(myBoys);
+		document.getElementById("demo123").innerHTML = myChildren;
+	}
+</script>
+
+
+<p>Click the button to join three arrays.</p>
+
+<button onclick="myFunction75()">Try it</button>
+
+<p id="demo124"></p>
+
+<script>
+	function myFunction75() {
+		var arr1 = ["Cecilie", "Lone"];
+		var arr2 = ["Emil", "Tobias", "Linus"];
+		var arr3 = ["Robin", "Morgan"];
+		document.getElementById("demo124").innerHTML =
+			arr1.concat(arr2, arr3);
+	}
+</script>
+
+
+<p>The slice() method slices elements from an array.</p>
+
+<button onclick="myFunction76()">Try it</button>
+
+<p id="demo125"></p>
+
+<script>
+	function myFunction76() {
+		var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		var citrus = fruits.slice(1, 3);
+		document.getElementById("demo125").innerHTML = citrus;
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Booleans">Booleans</h2>
+<hr>
+<!---------------------------->
+
+<p>Display the value of 10 > 9:</p>
+
+<button onclick="myFunction77()">Try it</button>
+
+<p id="demo126"></p>
+
+
+<script>
+	function myFunction77() {
+		document.getElementById("demo126").innerHTML = 10 > 9;
+	}
+</script>
+
+
+<p id="demo127"></p>
+
+<script>
+	var b1 = Boolean(100);
+	var b2 = Boolean(3.14);
+	var b3 = Boolean(-15);
+	var b4 = Boolean("Hello");
+	var b5 = Boolean('false');
+	var b6 = Boolean(1 + 7 + 3.14);
+
+	document.getElementById("demo127").innerHTML =
+	"100 is " + b1 + "<br>" +
+	"3.14 is " + b2 + "<br>" +
+	"-15 is " + b3 + "<br>" +
+	"Any (not empty) string is " + b4 + "<br>" +
+	"Even the string 'false' is " + b5 + "<br>" +
+	"Any expression is (except zero) is " + b6;
+</script>
+
+
+<p>Display the Boolean value of 0:</p>
+
+<button onclick="myFunction78()">Try it</button>
+
+<p id="demo128"></p>
+
+<script>
+	function myFunction78() {
+		var a = 0;
+		var b = -0;
+		var c = "";
+		var d;
+		var f = null;
+		var g = false;
+		var h = 10 / "H";
+		document.getElementById("demo128").innerHTML = 
+		"0 is " + Boolean(a) + "<br>" +
+		"-0 is " + Boolean(b) + "<br>" +
+		"\"\" is " + Boolean(c) + "<br>" +
+		"undefined is " + Boolean(d) + "<br>" +
+		"null is " + Boolean(f) + "<br>" +
+		"false is " + Boolean(g) + "<br>" +
+		"10 / \"H\" is " + Boolean(h) + "<br>";
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Type Conversion">Type Conversion</h2>
+<hr>
+<!---------------------------->
+
+<p>The constructor property returns the constructor function for a variable or an object.</p>
+
+<p id="demo129"></p>
+
+
+<button onclick="myFunction79(new Date())">isDate</button>
+
+<p id="demo130"></p>
+
+
+<button onclick="myFunction80([1,2,3,4])">isArray</button>
+
+<p id="demo131"></p>
+
+<script>
+	document.getElementById("demo129").innerHTML =
+		"john".constructor + "<br>" +
+		(3.14).constructor + "<br>" +
+		false.constructor + "<br>" +
+		[1,2,3,4].constructor + " <br>" +
+		{name:'john', age:34}.constructor + "<br>" +
+		new Date().constructor + "<br>" + 
+		function () {}.constructor;
+
+	function myFunction79(myDate) {
+		document.getElementById("demo131").innerHTML =
+			 myDate.constructor.toString().indexOf("Date") > -1;
+	}
+	function myFunction80(myArray) {
+		document.getElementById("demo130").innerHTML =
+			 myArray.constructor.toString().indexOf("Array") > -1;
+	}	
+</script>
+
+
+<p>The String() method can convert a number to a string.</p>
+
+<p id="demo132"></p>
+
+<script>
+	var x = 123;
+	document.getElementById("demo132").innerHTML =
+		String(x) + "<br>" +
+		String(123) + "<br>" +
+		String(100 + 23);
+</script>
+
+<p>The String() method can convert a date</p>
+
+<p id="demo133"></p>
+
+<script>
+	var d = Date();
+	document.getElementById("demo133").innerHTML =
+		String(d) + "<br>" +
+		d.toString();
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Comparisons">Comparisons</h2>
+<hr>
+<!---------------------------->
+
+<p>Assign 5 to x, and display the value of the comparison (x !== "5"):</p>
+
+<button onclick="myFunction81()">Try it</button>
+
+<p id="demo134"></p>
+
+<script>
+	function myFunction81() {
+		var x = 5;
+		document.getElementById("demo134").innerHTML = (x !== "5");
+	}
+</script>
+
+
+<p>Input your age and click the button:</p>
+
+<input id="age" value="18">
+
+<button onclick="myFunction82()">Try it</button>
+
+<p id="demo135"></p>
+
+<script>
+	function myFunction82() {
+		var age, voteable;
+		age = document.getElementById("age").value;
+		voteable = (age < 18) ? "Too young":"Old enough";
+		document.getElementById("demo135").innerHTML = voteable + " to vote.";
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Conditions">Conditions</h2>
+<hr>
+<!---------------------------->
+
+<p>Display "Good day", only if the time is less than 20:00:</p>
+
+<button onclick="myFunction83()">Try it</button>
+
+<p id="demo136"></p>
+
+<script>
+	function myFunction83() {
+		var time = new Date();
+		if (time < 10) {
+			document.getElementById("demo136").innerHTML = "Good morning";
+		} else if (time < 20) {
+			document.getElementById("demo136").innerHTML = "Good day";
+		} else {
+			document.getElementById("demo136").innerHTML = "Good evening";
+		}
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Switch">Switch</h2>
+<hr>
+<!---------------------------->
+
+<p>Click the button to display what day it is today:</p>
+
+<button onclick="myFunction84()">Try it</button>
+
+<p id="demo137"></p>
+
+<script>
+	function myFunction84() {
+		var day;
+		switch (new Date().getDay()) {
+			case 0:
+				day = "Sunday";
+				break;
+			case 1:
+				day = "Monday";
+				break;
+			case 2:
+				day = "Tuesday";
+				break;
+			case 3:
+				day = "Wednesday";
+				break;
+			case 4:
+				day = "Thursday";
+				break;
+			case 5:
+				day = "Friday";
+				break;
+			case 6:
+				day = "Saturday";
+				break;
+		}
+		document.getElementById("demo137").innerHTML = "Today is " + day;
+	}
+</script>
+
+
+<p>Click the button to display a message based on what day it is today:</p>
+
+<button onclick="myFunction85()">Try it</button>
+
+<p id="demo138"></p>
+
+<script>
+	function myFunction85() {
+		var text;
+		switch (new Date().getDay()) {
+		case 6:
+			text = "Today is Saturday";
+			break;
+		case 0:
+			text = "Today is Sunday";
+			break;
+		default:
+			text = "Looking forward to the Weekend";
+		}
+		document.getElementById("demo138").innerHTML = text;
+	}
+</script>
+
+
+<p>Click the button to display a message based on what day it is:</p>
+
+<button onclick="myFunction86()">Try it</button>
+
+<p id="demo139"></p>
+
+<script>
+	function myFunction86() {
+		var text;
+		switch (new Date().getDay()) {
+			case 1:
+			case 2:
+			case 3:
+			default:
+				text = "Looking forward to the Weekend";
+				break;
+			case 4:
+			case 5:
+				text = "Soon it is Weekend";
+				break;
+			case 0:
+			case 6:
+				text = "It is Weekend";
+		}
+		document.getElementById("demo139").innerHTML = text;
+		
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Loop For">Loop For</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo140"></p>
+
+<script>
+	cars = ["BMW", "Volvo", "Saab", "Ford"];
+	text = "";
+	for (var i = 0; i < cars.length; i++) {
+		text += cars[i] + "<br>";
+	}
+
+	document.getElementById("demo140").innerHTML = text;
+</script>
+
+
+<p id="demo141"></p>
+
+<script>
+	var txt = "";
+	var person = {fname:"John", lname:"Doe", age:25};
+	var x;
+	for (x in person) {
+		txt += person[x] + " ";
+	}
+	document.getElementById("demo141").innerHTML = txt;
+</script>
+
+
+<p>Click on the button to loop through a block of code as long as i is less than 10.</p>
+
+<button onclick="myFunction87()">Try it</button>
+
+<p id="demo142"></p>
+
+<script>
+	function myFunction87() {
+		var text = "";
+		var i = 0;
+		while (i < 10) {
+			text += "<br>The number is " + i;
+			i++;
+		}
+		document.getElementById("demo142").innerHTML = text;
+	}
+</script>
+
+
+<p>Click the button to loop through a block of code as long as i is less than 10.</p>
+
+<button onclick="myFunction88()">Try it</button>
+
+<p id="demo143"></p>
+
+<script>
+	function myFunction88() {
+		var text = "";
+		var i = 0;
+		do {
+			text += "<br>The number is " + i;
+			i++;
+		} while (i < 10)
+		document.getElementById("demo143").innerHTML = text;
+	}	
+</script>
+
+
+<p id="demo144"></p>
+
+<script>
+	cars = ["BMW", "Volvo", "Saab", "Ford"];
+	var i = 0;
+	var text = "";
+	while (cars[i]) {
+		text += cars[i] + "<br>";
+		i++;
+	}
+	document.getElementById("demo144").innerHTML = text;
+</script>
+
+
+<p>Click the button to do a loop with a break.</p>
+
+<button onclick="myFunction89()">Try it</button>
+<button onclick="myFunction90()">Try it</button>
+
+<p id="demo145"></p>
+
+<script>
+	function myFunction89() {
+		var text = "";
+		var i;
+		for (i = 0; i < 10; i++) {
+			if (i == 3) break;
+			text += "The number is " + i + "<br>";
+		}
+		document.getElementById("demo145").innerHTML = text;
+	}
+	function myFunction90() {
+		var text = "";
+		for (var i = 0; i < 10; i++) {
+			if (i == 3) continue;
+			text += "The number is " + i + "<br>";
+		}
+		document.getElementById("demo145").innerHTML = text;
+	}
+</script>
+
+
+<p id="demo146"></p>
+
+<script>
+	cars = ["BMW", "Volvo", "Saab", "Ford"];
+	text = "";
+
+	list: {
+		text += cars[0] + "<br>";
+		text += cars[1] + "<br>";
+		text += cars[2] + "<br>";
+		break list;
+		text += cars[3] + "<br>";
+		text += cars[4] + "<br>";
+		text += cars[5] + "<br>";
+	}	
+
+	document.getElementById("demo146").innerHTML = text;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Errors">Errors</h2>
+<hr>
+<!---------------------------->
+
+
+<p id="demo147"></p>
+
+<script>
+	try {
+		adddlert("Welcome guest!");
+	} catch(err) {
+		document.getElementById("demo147").innerHTML = err.message;
+	}
+</script>
+
+<p>Please input a number between 5 and 10:</p>
+
+<input id="demo148" type="text">
+<button type="button" onclick="myFunction91()">Test Input</button>
+<p id="message"></p>
+
+<script>
+	function myFunction91() {
+		var message, x;
+		message = document.getElementById("message");
+		message.innerHTML = "";
+		x = document.getElementById("demo148").value;
+
+		try {	
+			if (x == "") 	throw "is Empty";
+			if (isNaN(x)) 	throw "not a number";
+			if (x > 10) 	throw "too high";
+			if (x < 5)		throw "too low";
+		} catch(err) {
+			message.innerHTML = "Input " + err;
+		} finally {
+			document.getElementById("demo148").value = "";
+		}
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="RegExp">RegExp</h2>
+<hr>
+<!---------------------------->
+
+
+<p>Search a string for "w3Schools", and display the psoition of the match:</p>
+
+<button onclick="myFunction92()">Try it</button>
+
+<p id="demo149"></p>
+
+<script>
+	function myFunction92() {
+		var str = "Visit W3Schools!";
+		var n = str.search(/w3Schools/i);
+		document.getElementById("demo149").innerHTML = n;
+	}
+</script>
+
+
+<p>Replace a "microsoft" with "W3Schools" in the paragraph:</p>
+
+<button onclick="myFunction93()">Try it</button>
+
+<p id="demo150">Please visit Microsoft!</p>
+
+<script>
+	function myFunction93() {
+		var str = document.getElementById("demo150").innerHTML;
+		var txt = str.replace(/microsoft/i, "W3Schools");
+		document.getElementById("demo150").innerHTML = txt;
+	}
+</script>
+
+
+<p>Search for an "e" in the next paragraph:</p>
+
+<p id="p01">The best things in life are free!</p>
+
+<button onclick="myFunction94()">Try it</button>
+
+<p id="demo151"></p>
+
+<script>
+	function myFunction94() {
+		text = document.getElementById("p01").innerHTML;
+		document.getElementById("demo151").innerHTML = /e/.test(text);
+	}
+</script>
+
+
+<p>Search for an "e" in the next paragraph:</p>
+
+<p id="p01">The best things in life are free!</p>
+
+<button onclick="myFunction95()">Try it</button>
+
+<p id="demo152"></p>
+
+<script>
+	function myFunction95() {
+		text = document.getElementById("p01").innerHTML;
+		document.getElementById("demo152").innerHTML = /e/.exec(text);
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Hoisting">Hoisting</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo153"></p>
+
+<script>
+	xx = 5; // Assign 5 to x
+	
+	elem = document.getElementById("demo153"); //Find an element
+	elem.innerHTML = xx;
+
+	var xx; // Declare x
+</script>
+
+
+<p id="demo154"></p>
+
+<script>
+	var x; // Initialize x
+	x = 5; // Assign 5 to x
+	
+	elem = document.getElementById("demo154"); // Find an element
+	elem.innerHTML = x;
+</script>
+
+
+<p id="demo155"></p>
+
+<script>
+	x = 5; // Assign 5 to x
+	y = 7;
+	var elem = document.getElementById("demo155"); //Find an element
+	elem.innerHTML = x + " " + y;
+</script>
+
+
+<p id="demo156"></p>
+
+<script>
+	var x = 5; // Initialize x
+	
+	elem = document.getElementById("demo156"); // Find an element
+	elem.innerHTML = x + " " + y;
+	
+	var y = 7;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Strict Mode">Strict Mode</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo157"></p>
+
+<script>
+	"use strict";
+	// we need to use the var keyword
+    var jj = 3.14;
+	document.getElementById("demo157").innerHTML = jj;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Conventions">Conventions</h2>
+<hr>
+<!---------------------------->
+
+<!-- Declare variables at the top -->
+<script>
+	"use strict";		
+	var firstName, lastName;
+	var price, discount, fullPrice;
+	
+	firstName = "John";
+	lastName = "Doe";
+	
+	price = 19.90;
+	discount = 0.10;
+	
+	fullPrice = price * 100 / discount;
+</script>
+
+<!-- Spaces around operators and commas -->
+<script>
+	"use strict"
+	x = 5 + 6; 	// Good
+	x=5+6 		// Bad
+
+	[40, 100, 1, 5]; 	// Good
+	[40,100,1,5];		// Bad
+</script>
+
+
+<!-- Use 4 spaces of indentations of code blocs -->
+<script>
+	"use strict"
+	function toCelsius(fahrenheit) {
+		return (5/9) * (fahrenheit-32);
+	}	
+	var i, sum = 0;
+	for (i = 1; i < 50; i++) {
+		sum += i;
+	}
+    
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Performance">Performance</h2>
+<hr>
+<!---------------------------->
+
+<!-- Reduce DOM Access -->
+<p id="demo158"></p>
+
+<script defer>
+    "use strict"
+    var obj;
+    obj = document.getElementById("demo158");
+    obj.innerHTML = " Hello";
+</script>
+
+
+<!-- This manually appends a script node after the html page has finished loading -->
+<p>Check the console log. The script writes to it, saying a new element has been appended to the DOM.</p>
+<script>
+	window.onload = downScripts();
+
+	function downScripts() {
+        var element = document.createElement("script");
+        element.src = "myScript2.js";
+        document.body.appendChild(element);
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Reserved Words">Reserved Words</h2>
+<hr>
+<!---------------------------->
+
+<p>The following is a list of <b>js keywords</b> I did not encounter from this basic tutorial (the tutorial did not cover, in particular good detail):</p>
+<ul>
+	<li>abstract</li>
+	<li>arguments</li>
+	<li>byte</li>
+	<li>char</li>
+	<li>class <i>(EMCAScript5)</i> </li>
+	<li>const (edit: const is <b>NOT</b> supported as a standard keyword. Do not use it.)</li>
+	<li>debugger</li>
+	<li>double</li>
+	<li>enum <i>(EMCAScript5)</i></li>
+	<li>export <i>(EMCAScript5)</i></li>
+	<li>extends <i>(EMCAScript5)</i></li>
+	<li>final</li>
+	<li>float</li>
+	<li>goto</li>
+	<li>implements</li>
+	<li>import <i>(EMCAScript5)</i></li>
+	<li>instanceof</li>
+	<li>int</li>
+	<li>interface</li>
+	<li>let</li>
+	<li>long</li>
+	<li>native</li>
+	<li>package</li>	
+	<li>private</li>	
+	<li>protected</li>	
+	<li>public</li>	
+	<li>short</li>	
+	<li>static</li>	
+	<li>super</li>	
+	<li>synchronized</li>	
+	<li>throws (throw was covered, but not <b>throws</b></li>	
+	<li>transient</li>	
+	<li>void</li>	
+	<li>volatile</li>	
+	<li>yield</li>	
+
+</ul>
+
+<p>The following lists <b>js objects, properties, and methods</b> that were not adequately covered in the basic tutorial:</p>
+<ul>
+	<li>hasOwnProperty</li>	
+	<li>isPrototypeOf</li>	
+	<li>prototype</li>	
+</ul>
+<p>These are some <b>JAVA</b> objects and properties that are often used with JavaScript:</p>
+<ul>
+	<li>getClass</li>	
+	<li>java</li>	
+	<li>JavaArray</li>	
+	<li>javaClass</li>	
+	<li>JavaObject</li>	
+	<li>JavaPackage</li>
+</ul>
+
+<p>There are also a handful of "Windows" Reserved words and HTML Event Handlers. Check the <a href="http://www.w3schools.com/js/js_reserved.asp">W3Schools</a>  because the list could be updated any day, and I wouldn't update it here everyday.</p>
+
+
+<!---------------------------->
+<hr>
+<h2 id="JSON">JSON</h2>
+<hr>
+<!---------------------------->
+
+<p>Create Object from JSON String</p>
+
+<p id="demo159"></p>
+
+<script>
+	"use strict"
+	var text =  '{ "employees" : [' +
+        '{"firstName" : "John", "lastName" : "Doe" },' +
+        '{"firstName" : "Anna", "lastName" : "Smith" },' +
+        '{"firstName" : "Peter", "lastName" : "Jones" }]}';
+
+    obj = JSON.parse(text);
+    document.getElementById("demo159").innerHTML =
+        obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Object Definitions">Object Definitions</h2>
+<hr>
+<!---------------------------->
+
+
+<p id="demo160"></p>
+
+<script>
+	var person = {
+		firstName : "John",
+		lastName  : "Doe",
+		age       : 50,
+        eyeColor  : "blue"
+	};
+
+    document.getElementById("demo160").innerHTML =
+        person.firstName + " is " + person.age + " years old.";
+</script>
+
+
+<p id = 'demo161'></p>
+
+<script>
+    var person = new Object();
+    person.firstName = "John";
+    person.lastName = "Doe";
+    person.age = 50;
+    person.eyeColor = "blue";
+    document.getElementById("demo161").innerHTML =
+        person.firstName + " is " + person.age + " years old.";
+</script>
+
+<!-- Object Constructor -->
+<p id="demo162"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    var myFather = new person("John", "Doe", 50, "blue");
+    var myMother = new person("Sally", "Rally", 48, "green");
+
+    document.getElementById("demo162").innerHTML =
+        "My father is " + myFather.age + ". My mother is " + myMother.age;
+</script>
+
+
+<p id="demo163"></p>
+
+<script>
+    "use strict";   
+    var person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+    var x = person;
+    x.age = 10;
+    document.getElementById("demo163").innerHTML =
+        person.firstName + " is " + person.age + " years old.";
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Object Properties">Object Properties</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo164"></p>
+
+<script>
+    var person = {
+        firstName: "John",
+        lastName:  "Doe",
+        age:       50,
+        eyeColor:  "blue"
+    };
+
+    document.getElementById("demo164").innerHTML =
+        person.firstName + " is " + person.age + " years old.";
+</script>
+
+
+<p id="demo165"></p>
+
+<script>
+    var person = {
+        firstName: "John",
+        lastName:  "Doe",
+        age:       50,
+        eyeColor:  "blue"
+    };
+        
+    document.getElementById("demo165").innerHTML =
+        person["firstName"] + " is " + person["age"] + " years old.";
+</script>
+
+
+<p id="demo166"></p>
+
+<script>
+    "use strict";        
+    var txt = "";
+    var person = {fname: "John", lname: "Doe", age: 25};
+    var x;
+    for (x in person) {
+        txt += person[x] + " ";
+    }
+    document.getElementById("demo166").innerHTML = txt;
+</script>
+
+
+<p id="demo167"></p>
+
+<script>
+    var person = {
+        firstName: "John",
+        lastName:  "Doe",
+        age:       50,
+        eyeColor:  "blue"
+    };
+    person.nationality = "English";
+    document.getElementById("demo167").innerHTML =
+    person.firstName + " is " + person.nationality + ".";
+</script>
+
+<p id="demo168"></p>
+
+<script>
+    var person = {
+        firstName: "John",
+        lastName:  "Doe",
+        age:       50,
+        eyeColor:  "blue"
+    };
+    delete person.age;
+    document.getElementById("demo168").innerHTML =
+       person.firstName + " is " + person.age + " years old.";
+</script>
+
+
+<p id="demo169"></p>
+
+<script>
+    "use strict";    
+    
+    function person(firstname, lastname, age, eyecolor) {
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.age = age;
+        this.eyeColor = eyecolor; 
+        this.changeName = changeName;
+
+        function changeName(name) {
+            this.lastName = name;
+        }
+    }
+
+    var myMother = new person("Sally", "Rally", 48, "green");
+    myMother.changeName("Doe");
+    document.getElementById("demo169").innerHTML =
+        "My mother's last name is " + myMother.lastName;
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Object Prototypes">Object Prototype</h2>
+<hr>
+<!---------------------------->
+
+
+<p id="demo170"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+        
+    var myFather = new person("John", "Doe", 50, "blue");
+    var myMother = new person("Sally", "Rally", 48, "green");
+
+    document.getElementById("demo170").innerHTML =
+        "My father is " + myFather.age + ". My mother is " + myMother.age;
+</script>
+
+
+<p id="demo171"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+    
+    var myFather = new person("John", "Doe", 50, "blue");
+    var myMother = new person("Sally", "Rally", 48, "green");
+
+    myFather.nationality = "English";
+
+    document.getElementById("demo171").innerHTML =
+    "My father is " + myFather.nationality;
+</script>
+
+
+<p id="demo172"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+    
+    var myFather = new person("John", "Doe", 50, 'blue');
+    var myMother = new person("Sally", "Rally", 48, "green");
+
+    myFather.name = function() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    document.getElementById("demo172").innerHTML =
+        "My father is " + myFather.name();
+</script>
+
+<!-- adding properties to prototypes must be done in the object constructor function -->
+<p id="demo173"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+        this.nationality = "English";
+    }
+    
+    var myFather = new person("John", "Doe", 50, "blue");
+    var myMother = new person("Sally", "Rally", 48, "green");
+
+    document.getElementById("demo173").innerHTML =
+        "My father is " + myFather.nationality + ". My mother is " + myMother.nationality;
+</script>
+
+
+<!-- add methods to the object constructor functions too -->
+<p id="demo174"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+        this.name = function() {
+            return this.firstName + " " + this.lastName;
+        };
+    }
+    
+    var myFather = new person("John", "Doe", 50, "blue");
+    document.getElementById("demo174").innerHTML =
+    "My father is " + myFather.name();
+</script>
+
+
+<!-- Adding new properties to prototype using the 'prototype' property -->
+<p id="demo175"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+    person.prototype.nationality = "English";
+
+    var myFather = new person("John", "Doe", 50, "blue");
+    document.getElementById("demo175").innerHTML = 
+    "My father is " + myFather.nationality;
+</script>
+
+
+<!-- Add new methods to existing prototyes using the 'prototype' property -->
+<p id="demo176"></p>
+
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    person.prototype.name = function() {
+        return this.firstName + " " + this.lastName;
+    };
+
+    var myFather = new person("John", "Doe", 50, "blue");
+    document.getElementById("demo176").innerHTML =
+    "My father is " + myFather.name();
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Function Definitions">Function Definitions</h2>
+<hr>
+<!---------------------------->
+
+<p>This example calls a function which performs a calculation, and returns the result:</p>
+
+<p id="demo177"></p>
+
+<script>
+    "use strict";    
+    function myFunction95(a,b) {
+        return a * b;
+    }
+    document.getElementById("demo177").innerHTML = myFunction95(4, 3);
+</script>
+
+
+<p>A fucntion can be stored in a varaible:</p>
+
+<p id="demo178"></p>
+
+<script>
+    "use strict";
+    var x = function(a,b) { return a * b; };
+    document.getElementById("demo178").innerHTML = x;
+</script>
+
+
+<p>After a function has been stored in a variable,
+the varaible can be used as a function:</p>
+
+<p id="demo179"></p>
+
+<script>
+    var x = function(a, b) { return a * b; };
+    document.getElementById("demo179").innerHTML = x(4,3);
+</script>
+
+
+<p>JavaScript has a built-in function constructor.</p>
+<p id="demo180"></p>
+
+<script>
+    var myFunction96 = new Function("a", "b", "return a * b");
+    // var myFunction96 = function(a,b) { return a * b; };
+    document.getElementById("demo180").innerHTML = myFunction96(4,3);
+</script>
+
+
+<!-- Self-invoking function -->
+
+<p>Function can be invoked automatically without being called:</p>
+
+<p id="demo181"></p>
+
+<script>
+    (function myFunction97() {
+        document.getElementById("demo181").innerHTML = "Hello! I called myself";
+    })();
+</script>
+
+
+<p>Functions can be treated as values:</p>
+<p>x = myFunction98(4,3) or x = 12</p>
+<p>In both cases, x becomes a number with the value of 12 </p>
+<p id="demo182"></p>
+
+<script>
+    function myFunction98(a,b) {
+        return a * b;
+    }
+
+    var x = myFunction98(4, 3);
+    document.getElementById("demo182").innerHTML = x;
+</script>
+
+
+<p>Functions can be used in expressions.</p>
+<p id="demo183"></p>
+
+<script>
+    function myFunction99(a,b) {
+        return a * b;
+    }
+    var x = myFunction99(4, 3) * 2;
+    document.getElementById("demo183").innerHTML = x;
+</script>
+
+
+<p>The arguments.length property returns the number of arguments received by the function:</p>
+
+<p id="demo184"></p>
+
+<script>
+    function myFunction100(a,b) {
+        return arguments.length;
+    }
+    document.getElementById("demo184").innerHTML = myFunction100(4,3);
+</script>
+
+<p>The toString() method returns the function as a string:</p>
+
+<p id="demo185"></p>
+
+<script>
+    function myFunction101(a, b) {
+        return a * b;
+    }
+    document.getElementById("demo185").innerHTML = myFunction101.toString();
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Function Parameters">Function Parameters</h2>
+<hr>
+<!---------------------------->
+
+<p>Setting a default value to a function paramater.</p>
+<p id="demo186"></p>
+
+<script>
+    function myFunction102(a,b) {
+        b = b || 0;
+        return a * b;
+    }
+    document.getElementById("demo186").innerHTML = myFunction102(4);
+</script>
+
+
+<p>Finding the largest number.</p>
+<p id="demo187"></p>
+
+<p>Sum the arguments</p>
+
+<p id="demo188"></p>
+
+<script>
+    "use strict";    
+    function findMax() {
+        var i, max = 0;
+        for (i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max)
+                max = arguments[i];
+        }
+        return max;
+    }
+    function sumAll() {
+        var i, sum = 0;
+        for (i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    document.getElementById("demo187").innerHTML = findMax(4, 5, 6);
+    document.getElementById("demo188").innerHTML = sumAll(1, 123, 500, 115, 44, 88);
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="Function Invocation">Function Invocation</h2>
+<hr>
+<!---------------------------->
+
+<p>
+The global function (myFunction) returns the product of the arguments (a, b):
+</p>
+
+<p id="demo189"></p>
+
+<script>
+    "use strict";
+    function myFunction103(a,b) {
+        return a * b;
+    }
+    document.getElementById("demo189").innerHTML = window.myFunction103(10, 2);
+</script>
+
+<p>In HTML the value of <b>this</b>, in a global function, is the window object.</p>
+
+<p id="demo190"></p>
+
+<script>
+    // the 'use strict' directive causes the function to return 'this' as undefined 
+    // instead of as a window object. 
+    //"use strict";
+    
+    function myFunction104() {
+        return this;
+    }
+    document.getElementById("demo190").innerHTML = myFunction104();
+</script>
+
+<p>myObject.fullName() will return John Doe:</p>
+
+<p id="demo191"></p>
+
+<script>
+    "use strict";
+    var myObject = {
+        firstName: "John",
+        lastName: "Doe",
+        fullName: function() {
+            return this; //.firstName + " " + this.lastName;
+        }
+    }
+    document.getElementById("demo191").innerHTML = myObject.fullName();
+</script>
+
+
+<p>In this example, myFunction105() is a function constructor:</p>
+
+<p id="demo192"></p>
+
+<script>
+    function myFunction105(arg1, arg2) {
+        this.firstName = arg1;
+        this.lastName = arg2;
+    }
+
+    var x = new myFunction105("John", "Doe");
+    document.getElementById("demo192").innerHTML = x.firstName;
+</script>
+
+
+<!-- call() -->
+<p id="demo193"></p>
+
+<script>
+    "use strict";
+    function myFunction106(a,b) {
+        return a * b;
+    }
+    document.getElementById("demo193").innerHTML = this + " " +  myFunction106.call(this, 10, 2);
+</script>
+
+<!-- apply() -->
+<p id="demo194"></p>
+
+<script>
+    "use strict";
+    function myFunction106(a,b) {
+        return a * b;
+    }
+    var myArray = [10, 2];
+    document.getElementById("demo194").innerHTML = this + " " + myFunction106.apply(this, myArray);
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="Function Closures">Function Closures</h2>
+<hr>
+<!---------------------------->
+
+<p>A function can access variables defined inside the function:</p>
+
+<button type="button" onclick="myFunction107()">Click Me!</button>
+
+<p id="demo195"></p>
+
+<script>
+    "use strict";
+    function myFunction107() {
+        var a = 4;
+        document.getElementById("demo195").innerHTML = a * a;
+    }
+</script>
+
+
+<p>A function can access variables defined outside the function:</p>
+
+<button type="button" onclick="myFunction108()">Click Me!</button>
+
+<p id="demo196"></p>
+
+<script>
+    "use strict";
+    var a = 4;
+    function myFunction108() {
+        document.getElementById("demo196").innerHTML = a * a;
+    }
+</script>
+
+
+<p>Counting with a global variable.</p>
+
+<button type="button" onclick="myFunction109()">Count!</button>
+
+<p id="demo197"></p>
+
+<script>
+    "use strict";
+    var counter = 0;
+    
+    function add() {
+        return counter += 1;
+    }
+
+    function myFunction109() {
+        document.getElementById("demo197").innerHTML = add();
+    }
+</script>
+
+
+<p>Counting with a local variable</p>
+
+<button type="button" onclick="myFunction110()">Count!</button>
+
+<p id="demo198">0</p>
+
+<script>
+    "use strict";
+    function add() {
+        var counter = 0;
+        return counter += 1;
+    }
+    
+    function myFunction110() {
+        document.getElementById("demo198").innerHTML = add();
+    }
+</script>
+
+
+<p>Counting with a local variable</p>
+
+<p id="demo199">0</p>
+
+<script>
+    "use strict";
+
+    document.getElementById("demo199").innerHTML = add();
+    function add() {
+        var counter = 0;
+        function plus() { counter += 1; }
+        plus();
+        return counter;
+    }
+</script>
+
+
+<p>Counting with a local variable.</p>
+
+<button type="button" onclick="myFunction111()">Count!</button>
+
+<p id="demo200">0</p>
+
+<!-- Closure example -->
+<script>
+    "use strict";
+    // Note: the return value 'functino() { return counter += 1; }' is what gets stored in add variable. 'counter = 0' is
+    // executed only once by the self-invoking function, so each time we do add(), the piece of code that gets executed is
+    // the 'return counter += 1' (it's what was stored in the add variable). The self-invoking function never runs a second time.
+    var add = (function () {
+        var counter = 0;
+        return function () { return counter += 1; }
+    })();
+
+    function myFunction111() {
+        document.getElementById("demo200").innerHTML = add();
+    }
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="DOM Intro">DOM Intro</h2>
+<hr>
+<!---------------------------->
+
+<h1>My First Page</h1>
+
+<p id="demo201"></p>
+
+<script>
+	"use strict";
+    document.getElementById("demo201").innerHTML = "Hello World!";
+</script>
+
+
+
+<!---------------------------->
+<hr>
+<h2 id="DOM Elements">DOM Elements</h2>
+<hr>
+<!---------------------------->
+
+<!-- If no element is found, the return is null -->
+<p id="intro">Hello World!</p>
+
+<p>This example demostrates the <b>getElementById</b> method!</p>
+
+<p id="demo202"></p>
+
+<script>
+    "use strict";
+    var myElement = document.getElementById("intro");
+    document.getElementById("demo202").innerHTML =
+        "The text from the intro paragraph is " + myElement.innerHTML;
+</script>
+
+
+<p>Hello World!</p>
+
+<div id="main">
+<p>The DOM is very useful.</p>
+<p>This example demostrates the <b>getElementsByTagName</b> method</p>
+</div>
+
+<p id="demo203"></p>
+
+<script>
+    "use strict";
+    var x = document.getElementById("main");
+    var y = x.getElementsByTagName("p");
+    document.getElementById("demo203").innerHTML =
+        'The first paragraph inside "main" is ' + y[0].innerHTML;
+</script>
+
+
+<form id="frm1" action="form_action.asp">
+    First name: <input type="text" name="fname" value="Donald"><br>
+    Last name: <input type="text" name="lname" value="Duck"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<p>Click "Try it" to display the value of each element in the form.</p>
+
+<button onclick="myFunction112()">Try it</button>
+
+<p id="demo204"></p>
+
+<script>
+    function myFunction112() {
+        var x = document.getElementById("frm1");
+        var text = "";
+        var i;
+        for (i = 0; i < x.length; i++) {
+            text += x.elements[i].value + "<br>";
+        }
+        document.getElementById("demo204").innerHTML = text;
+    }
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="DOM HTML">DOM HTML</h2>
+<hr>
+<!---------------------------->
+
+<script>
+    "use strict";
+    document.write(Date());
+</script>
+
+
+<p id="demo205">Hello World!</p>
+
+<script>
+    document.getElementById("demo205").innerHTML = "New text!";
+</script>
+
+<p>The paragraph above was changed by a script.</p>
+
+
+<h1 id="demo206">Old Header</h1>
+
+<script>
+    var element = document.getElementById("demo206");
+    element.innerHTML = "New Header";
+</script>
+
+
+<img id="demo207" src="http://www.w3schools.com/js/smiley.gif" width="160" height="120"> 
+
+<button type="button" onclick="function113()">Try it</button>
+
+<script>
+    function function113() {
+        document.getElementById("demo207").src = "http://www.w3schools.com/js/landscape.jpg";
+    }
+</script>
+
+<p>The original image was smiley.gif, but the script changed it to landscape.jpg</p>
+
+<!---------------------------->
+<hr>
+<h2 id="DOM CSS">DOM CSS</h2>
+<hr>
+<!---------------------------->
+
+<p id="demo208">Hello World!</p>
+<p id="demo209">Hello World!</p>
+
+<script>
+    document.getElementById("demo209").style.color = "blue";
+    document.getElementById("demo209").style.fontFamily = "Arial";
+    document.getElementById("demo209").style.fontSize = "larger";
+</script>
+
+<p>The paragraph above was changed by a script.</p>
+
+
+<h1 id="demo210">My Heading 1</h1>
+
+<!-- onclick event property accepts javascript code as the value -->
+<button type="button" 
+onclick="document.getElementById('demo210').style.color = 'red'">
+Click Me!</button>
+
+
+<!---------------------------->
+<hr>
+<h2 id="DOM Events">DOM Events</h2>
+<hr>
+<!---------------------------->
+
+<h1 onclick="this.innerHTML='Opps!'">Click on this text!</h1>
+
+<h1 onclick="changetext(this)">Click on this text!</h1>
+
+<script>
+    "use strict";
+    function changetext(id) {
+        id.innerHTML = "Opps!";
+    }
+</script>
+
+
+<p>Click the button to display the date.</p>
+
+<button onclick="displayDate1()">The time is?</button>
+
+<script>
+    function displayDate1() {
+        document.getElementById("demo211").innerHTML = Date();
+    }
+</script>
+
+<p id="demo211"></p>
+
+
+<p>Click "Try it" to execute the displayDate() fucntion.</p>
+
+<button id="myBtn">Try it</button>
+
+<p id="demo212"></p>
+
+<script>
+    "use strict";
+    document.getElementById("myBtn").onclick = function() { displayDate2() };
+
+    function displayDate2() {
+        document.getElementById("demo212").innerHTML = Date();
+    }
+</script>
+
+<p id="demo213" onclick="checkCookies()">Hello</p>
+
+<script>
+function checkCookies() {
+    "use strict";
+    var text = "";
+    if (navigator.cookieEnabled==true) {
+        text = "Cookies are enabled.";
+    } else {
+        text = "Cookies are not enabled.";
+    }
+    document.getElementById("demo213").innerHTML = text;
+}
+    
+</script>
+
+
+<script>
+	"use strict";
+    function myFunction114() {
+        var x = document.getElementById("demo214");
+        x.value = x.value.toUpperCase();
+    }
+</script>
+
+Enter your name: <input type="text" id="demo214" onchange="myFunction114()">
+<p>When you leave the input field, a function is triggered which transforms the
+input text to upper case.</p>
+
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)"
+style="background-color:#D94A38;width:120px;height:20px;padding:40px;font-weight:bold;">
+Mouse Over Me</div>
+
+<script>
+    "use strict";
+    function mOver(obj) {
+        obj.innerHTML = "Thank You";
+    }
+
+    function mOut(obj) {
+        obj.innerHTML = "Mouse Over Me";
+    }
+</script>
+
+
+
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+
+<script>
+	"use strict";
+    function mDown(obj) {
+        obj.style.backgroundColor = "#1ec5e5";
+        obj.innerHTML = "Release Me";
+    }
+
+    function mUp(obj) {
+        obj.style.backgroundColor = "#D94A38";
+        obj.innerHTML = "Thank You";
+    }
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="DOM EventListener">DOM EventListener</h2>
+<hr>
+<!---------------------------->
+<script>
+	"use strict";
+		//onload = checkCookies();
+</script>
+
+<p>This exmaple uses the addEventListener() method to attach a click event to a button.</p>
+
+<button id="myBtn1">Try it</button>
+
+<p id="demo215"></p>
+
+<script>
+	"use strict";
+	document.getElementById("myBtn1").addEventListener("click", displayDate3);
+	
+	function displayDate3() {
+		document.getElementById("demo215").innerHTML = Date();
+	}
+</script>
+
+
+<p>This example uses the addEventListener() method to attach a click event to a button.</p>
+
+<button id="myBtn2">Try it</button>
+
+<script>
+	"use strict";
+	document.getElementById("myBtn2").addEventListener("click", function() {
+		alert("Hello World!");	
+	});
+</script>
+
+
+<p>This example usrs the addEventListener() method to execute a function when a user clicks on a button.</p>
+
+<button id="myBtn3">Try it</button>
+
+<script>
+	"use strict";
+	document.getElementById("myBtn3").addEventListener("click", myFunction115);
+	
+	function myFunction115() {
+		alert ("Hello World!");
+	}
+</script>
+
+<!-- add two events to the same element -->
+<p>This example usrs the addEventListener() method to add two click events to the same button.</p>
+
+<button id="myBtn4">Try it</button>
+
+<script>
+	"use strict";
+	var x = document.getElementById("myBtn4");
+	x.addEventListener("click", myFunction116);
+	x.addEventListener("click", myFunction117);
+
+	function myFunction116() {
+		alert ("Hello World!");		
+	}
+
+	function myFunction117() {
+		alert("This function was also executed!");
+	}
+</script>
+
+
+<!-- Add various events to one element -->
+<p>This example uses the addEventListener() method to add many events on the same button.</p>
+
+<p id="demo216"></p>
+<button id="myBtn5">Try it</button>
+
+
+<script>
+	"use strict";
+	var x = document.getElementById("myBtn5");
+	x.addEventListener("mouseover", myFunction118);
+	x.addEventListener("click", myFunction119);
+	x.addEventListener("mouseout", myFunction120);
+	function myFunction118() {
+		document.getElementById("demo216").innerHTML += "Moused over!<br>";
+	}
+	
+	function myFunction119() {
+		document.getElementById("demo216").innerHTML += "Clicked!<br>";
+	}
+	
+	function myFunction120() {
+		document.getElementById("demo216").innerHTML += "Mouse out!<br>";
+	}
+</script>
+
+<!-- adding events to other elements (instead of just a button) -->
+<p>This example uses the addEventListener() method on the window object.</p>
+
+<p>Try resizing this browser window to trigger the "resize" event handler.</p>
+
+<p id="demo217"></p>
+
+<script>
+	"use strict";
+	window.addEventListener("resize", function() {
+		document.getElementById("demo217").innerHTML = Math.random();
+	});
+</script>
+
+
+<!-- Using an anonymous function to call a function with arguments -->
+<p>This example demonstrates how to pass parameter values when usnig the addEventListener() method </p>
+
+<p>Click the button to perform a calculation.</p>
+
+<button id="myBtn6">Try it</button>
+
+<p id="demo218"></p>
+
+<script>
+	"use strict"
+	var p1 = 5;
+	var p2 = 7;
+	
+	document.getElementById("myBtn6").addEventListener("click", function() {
+		myFunction121(p1, p2);
+	});
+
+	function myFunction121(a, b) {
+		var result = a * b;
+		document.getElementById("demo218").innerHTML = result;
+	}
+</script>
+
+
+<!-- Event bubbling vs Event Capturing -->
+
+<p>This example demonstrates the differences between bubbling and capturing when
+adding event listeners.</p>
+
+<style>
+	.divDemo {
+		background-color: coral;
+		border: 1px solid;
+		padding: 50px;
+	}
+</style>
+
+<div id="myDiv1" class="divDemo">
+	<p id="myP1">Click this paragraph, I am Bubbling</p>
+</div><br>
+
+<div id="myDiv2" class="divDemo">
+	<p id="myP2">Click this paragraph, I am Capturing.</p>
+</div>
+
+<script>
+	"use strict";
+	document.getElementById("myP1").addEventListener("click", function () {
+		alert("You clicked the P element.");
+	}, false);
+
+	document.getElementById("myDiv1").addEventListener("click", function() {
+		alert("You clicked the DIV element.");
+	}, false);
+	
+	document.getElementById("myP2").addEventListener("click", function () {
+		alert("You clicked the P element!");
+	}, true);
+	
+	document.getElementById("myDiv2").addEventListener("click", function () {
+		alert("You clicked the DIV element!");
+	}, true);
+</script>
+
+
+
+<!-- Removing event handlers -->
+
+<div id="myDiv3">This div element has an onmousemove event handler that displays a random number every time you move your mouse inside this orange field.
+	<p>Click the button to remove the DIV's event handler.</p>
+	<button onclick="removeHandler()" id="myBtn7">Try it</button>
+</div>
+
+<p id="demo219"></p>
+
+<script>
+	"use strict";
+	document.getElementById("myDiv3").addEventListener("mousemove", myFunction121);
+		
+	function myFunction121() {
+		document.getElementById("demo219").innerHTML = Math.random();
+	}
+
+	function removeHandler() {
+		document.getElementById("myDiv3").removeEventListener("mousemove", myFunction121);
+	}
+</script>
+
+
+
+<!-- IE9 doesn't support addEventListener but does support attachEvent -->
+<p>The addEventListener() method is not supported in IE8 and earlier versions </p>
+
+<p>This example demonstrates a solution that will work for all browsers.</p>
+
+<button id="myBtn8">Try it</button>
+
+<script>
+	"use strict";
+	var x = document.getElementById("myBtn8");
+	if (x.addEventListener) {
+		x.addEventListener("click", myFunction122);
+	} else if (x.attachEvent) {
+		x.attachEvent("onclick", myFunction122);
+	}
+
+	function myFunction122() {
+		alert("Hello World!");
+	}
+</script>
+
+
+<!-- accessing element content using node value -->
+<h1 id="demo220">My First Page</h1>
+
+<p id="demo221"></p>
+
+<script>
+	var myText = document.getElementById("demo220").childNodes[0].nodeValue;
+	document.getElementById("demo221").innerHTML = myText;
+</script>
+
+
+<h1 id="demo222">My First Page</h1>
+
+<p id="demo223">My First Page</p>
+
+<script>
+	myText = document.getElementById("demo222").firstChild.nodeValue;
+	document.getElementById("demo223").innerHTML = myText;
+</script>
+
+
+<!-- document.body property -->
+<p>Hello World!</p>
+<button id="myBtn9" onclick="myFunction123()">Try it</button>
+
+<div>
+	<p>The DOM is very useful!</p>
+	<p>This example demonstrates the <b>document.body</b> property.</p>
+</div>
+
+<script>
+	"use strict";
+	function myFunction123() {
+		alert(document.body.innerHTML);
+	}
+</script>
+
+
+<!-- id = "comment" document.documentElement property -->
+<p>Hello World!</p>
+<button id="myBtn10" onclick="myFunction124()">Try it</button>
+
+<div>
+	<p>The DOM is very useful!</p>
+	<p>This example demonstrates the <b>document.documentElement</b> property.</p>
+</div>
+
+<script>
+	"use strict";
+	function myFunction124() {
+		alert(document.documentElement.innerHTML);
+	}
+</script>
+
+<p id="test01">Hello</p>
+
+
+<!---------------------------->
+<hr>
+<h2 id="DOM Navigation">DOM Navigation</h2>
+<hr>
+<!---------------------------->
+<!-- Append a new node to list of children -->
+<div id="divDemo1">
+	<p id="demo224">This is a paragramh.</p>
+	<p id="demo225">This is another paragraph.</p>
+</div>
+
+<script>
+	"use strict";
+	var para = document.createElement("p");
+	var node = document.createTextNode("This is  new.");
+	para.appendChild(node);
+	var element = document.getElementById("divDemo1");
+	element.appendChild(para);
+</script>
+
+<!-- Insert before a specified child node -->
+<div id="divDemo2">
+	<p id="demo226">This is a paragraph.</p>
+	<p id="demo227">This is another paragraph.</p>
+</div>
+
+<script>
+	"use strict";
+	var para = document.createElement("p");
+	var node = document.createTextNode("This is new.");
+	para.appendChild(node);
+
+	var element = document.getElementById("divDemo2");
+	var child = document.getElementById("demo226");
+	element.insertBefore(para, child);
+</script>
+
+<!-- removing html node -->
+<div id="divDemo3">
+	<p id="demo228">This is a paragraph</p>
+	<p id="demo229">This is another paragraph.</p>
+</div>
+
+<script>
+	"use strict";
+	var parent = document.getElementById("divDemo3");
+	var child = document.getElementById("demo228");
+	parent.removeChild(child);
+</script>
+
+
+<!-- replace an element node -->
+<div id="divDemo4">
+	<p id="demo230">This is a paragraph.</p>
+	<p id="demo231">This is another paragraph.</p>
+</div>
+
+<script>
+	"use strict";
+	var parent = document.getElementById("divDemo4");
+	var child = document.getElementById("demo230");
+	var para = document.createElement("p");
+	var node = document.createTextNode("This is new.");
+	para.appendChild(node);
+	parent.replaceChild(para, child);
+</script>
+		
+
+<!---------------------------->
+<hr>
+<h2 id="DOM Nodelist">DOM Nodelist</h2>
+<hr>
+<!---------------------------->
+
+<!-- get a list of nodes with getElementsByTagName() -->
+<p>Hello World!</p>
+
+<p>The DOM is very useful!</p>
+
+<p id="demo232"></p>
+
+<script>
+	var myNodeList = document.getElementsByTagName("p");
+	document.getElementById("demo232").innerHTML =
+	"The innerHTML of the first paragraph is: <br>" + 
+	myNodeList[0].innerHTML;
+</script>
+
+
+<!-- Node List Lenght property -->
+<p>How many paragraphs in this document?</p>
+
+<p>This example demonstrates the length property of a nodelist.</p>
+
+<p id="demo233"></p>
+
+<script>
+	var myNodeList = document.getElementsByTagName("p");
+	document.getElementById("demo233").innerHTML = myNodeList.length;
+</script>
+
+
+<!-- Change the background color of all "p" elements -->
+<p>This is a p element</p>
+<p>This is also a p element.</p>
+
+<p> This is also a p element - Click the button to change the background color of all
+p elements in this document.</p>
+
+<button onclick="myFunction125()">Add Highlight</button>
+<button onclick="myFunction126()">Remove Highlight</button>
+<script>
+	function myFunction125() {
+		var myNodeList = document.getElementsByTagName("p");
+		var i;
+		for (i = 0; i < myNodeList.length; i++) {
+			myNodeList[i].style.backgroundColor = "red";
+		}
+	}
+	
+	function myFunction126() {
+		var myNodeList = document.getElementsByTagName("p");
+		var i;
+		for (i = 0; i < myNodeList.length; i++) {
+			myNodeList[i].style.backgroundColor = "initial";
+		}
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="JS Window">JS Window</h2>
+<hr>
+<!---------------------------->
+
+<!-- get the size of client browser -->
+<p id="demo234"></p>
+
+<script>
+	"use strict";
+	var w = window.innerWidth 
+	|| document.documentElement.clientWidth
+	|| document.body.clientWidth;
+
+	var h = window.innerHeight
+	|| document.documentElement.clientHeight
+	|| document.body.clientHeight;
+
+	x = document.getElementById("demo234");
+	x.innerHTML = "Browser inner window width: " + w + ", height: " + h + ".";
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="JS Screen">JS Screen</h2>
+<hr>
+<!---------------------------->
+
+<!-- Displays the client's screen width -->
+<p id="demo235"></p>
+
+<script>
+	document.getElementById("demo235").innerHTML =
+	"Screen width is " + screen.width;
+</script>
+
+
+<!-- Displays the client's screen height -->
+<p id="demo236"></p>
+
+<script>
+	document.getElementById("demo236").innerHTML = 
+	"Screen height is " + screen.height;
+</script>
+
+<!-- available width -->
+<p id="demo237"></p>
+
+<script>
+	"use strict";
+	document.getElementById("demo237").innerHTML =
+	"Available screen width is " + screen.availWidth;
+</script>
+
+<!-- Available height -->
+<p id="demo238"></p>
+
+<script>
+	document.getElementById("demo238").innerHTML =
+	"Available screen height is " + screen.availHeight;
+</script>
+
+<!-- Client's Screen Depth Color -->
+<p id="demo239"></p>
+
+<script>
+	document.getElementById("demo239").innerHTML =
+	"Screen color depth is " + screen.colorDepth;
+</script>
+
+<!-- Client's Screen Pixel Depth -->
+<p id="demo240"></p>
+
+<script>
+	document.getElementById("demo240").innerHTML =
+	"Screen pixel depth is " + screen.pixelDepth;
+</script>
+<!---------------------------->
+<hr>
+<h2 id="JS Location">JS Location</h2>
+<hr>
+<!---------------------------->
+
+<!-- URL -->
+<p>Click the button to display the entire URL of the current page.</p>
+
+<button onclick="myFunction127()">Try it </button>
+
+<p id="demo241"></p>
+
+<script>
+	"use strict";
+	function myFunction127() {
+		document.getElementById("demo241").innerHTML = location.href;
+	}
+</script>
+
+<!-- Hostname -->
+<p>Click the button to display the hostname (and the port if not 80) of the current URL </p>
+
+<button onclick="myFunction242()">Try it</button>
+
+<p id="demo242"></p>
+
+<script>
+	"use strict";
+	function myFunction242() {
+		document.getElementById("demo242").innerHTML = location.host;
+	}
+</script>
+
+<!-- Pathname -->
+<p>Click the button to display the path name of the current URL.</p>
+
+<button onclick="myFunction243()">Try it</button>
+
+<p id="demo243"></p>
+
+<script>
+	"use strict";
+	function myFunction243() {
+		document.getElementById("demo243").innerHTML = location.pathname;
+	}
+</script>
+
+
+<!-- Protocol -->
+<p>Click the button to display the protocol portion of the current URL.</p>
+
+<button onclick="myFunction244()">Try it</button>
+
+<p id="demo244"></p>
+
+<script>
+	"use strict";
+	function myFunction244() {
+		document.getElementById("demo244").innerHTML = location.protocol;
+	}
+</script>
+
+
+<!-- Assign -->
+<input type="button" value="Load new Document" onclick="newDoc()">
+
+<script>
+	"use strict";
+	function newDoc() {
+		window.location.assign("http://www.w3schools.com");
+	}
+</script>
+<!---------------------------->
+<hr>
+<h2 id="JS History">JS History</h2>
+<hr>
+<!---------------------------->
+
+<!-- History Back -->
+<input type="button" value="Back" onclick="goBack()">
+
+<script>
+	"use strict";
+	function goBack() {
+		window.history.back();
+	}
+</script>
+
+<!-- History Forward -->
+<input type="button" value="Forward" onclick="goForward()">
+
+<script>
+	"use strict";
+	function goForward() {
+		window.history.forward();
+	}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="JS Navigator">JS Navigator</h2>
+<hr>
+<!---------------------------->
+
+<!-- check if cookies are enabled -->
+<p>Are cookies enabled in your browser?</p>
+
+<button onclick="myFunction128()">Try it</button>
+
+<p id="demo245"></p>
+
+<script>
+	"use strict";
+	function myFunction128() {
+		document.getElementById("demo245").innerHTML = 
+		"Cookies enabled is " + navigator.cookieEnabled;
+	}
+</script>
+
+
+<!-- check browser name and code name -->
+<p>What is the name(s) of your browser?</p>
+
+<button onclick="myFunction129()">Try it</button>
+
+<p id="demo246"></p>
+
+<script>
+	"use strict";
+	function myFunction129() {
+		document.getElementById("demo246").innerHTML =
+		"Name is " + navigator.appName +
+		"<br>Code name is " + navigator.appCodeName;
+	}
+</script>
+
+
+<!-- product property -->
+<p>Display browser engine.</p>
+
+<button onclick="myFunction130()">Try it</button>
+
+<p id="demo247"></p>
+
+<script>
+	"use strict";
+	function myFunction130() {
+		document.getElementById("demo247").innerHTML =
+		"Browser engine is " + navigator.product;
+	}
+</script>
+
+<!-- appVersion property -->
+<p>Display version information about the browser.</p>
+
+<button onclick="myFunction131()">Try it</button>
+
+<p id="demo248"></p>
+
+<script>
+	"use strict";
+	function myFunction131() {
+		document.getElementById("demo248").innerHTML =
+		navigator.appVersion;
+	}
+</script>
+
+<!-- userAgent property also shows browser version -->
+<p>Display the user-agent header sent by the browser to the server.</p>
+
+<button onclick="myFunction132()">Try it</button>
+
+<p id="demo249"></p>
+
+<script>
+	"use strict";
+	function myFunction132() {
+		document.getElementById("demo249").innerHTML =
+		navigator.userAgent;
+	}
+</script>
+
+
+<!-- platform property -->
+<p>Display browser platform.</p>
+
+<button onclick="myFunction133()">Try it</button>
+
+<p id="demo250"></p>
+
+<script>
+	function myFunction133() {
+		document.getElementById("demo250").innerHTML = 
+		navigator.platform;
+	}
+</script>
+
+
+<!-- language property -->
+<p>Display the browser language.</p>
+
+<button onclick="myFunction134()">Try it</button>
+
+<p id="demo251"></p>
+
+<script>
+	function myFunction134() {
+		document.getElementById("demo251").innerHTML =
+		"Browser language is " + navigator.language;
+	}
+</script>
+
+
+<!-- javaEnabled method -->
+<p>Is Java enabled?</p>
+
+<button onclick="myFunction135()">Try it</button>
+
+<p id="demo252"></p>
+
+<script>
+	function myFunction135() {
+		document.getElementById("demo252").innerHTML =
+		"Java enabled is " + navigator.javaEnabled();
+	}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="JS Popup Alert">JS Popup Alert</h2>
+<hr>
+<!---------------------------->
+
+<!-- alert popup -->
+<p>Click the button to display an alery box:</p>
+
+<button onclick="myFunction136()">Try it</button>
+
+<script>
+	"use strict";
+	function myFunction136() {
+		alert("I am an alert box!");
+	}
+</script>
+
+
+<p>Click the button to display a confirm box.</p>
+
+<button onclick="myFunction137()">Try it</button>
+
+<p id="demo253"></p>
+
+<script>
+	"use strict";
+	function myFunction137() {
+		var x;
+		if (confirm("Press a button!") == true) {
+			x = "You pressed OK!";
+		} else {
+			x = "You pressed Cancel!";
+		}
+
+		document.getElementById("demo253").innerHTML = x;
+	}
+</script>
+
+<!-- Prompt Box -->
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction138()">Try it</button>
+
+<p id="demo254"></p>
+
+<script>
+	"use strict";
+	function myFunction138() {
+		var person = prompt("Please enter your name", "Harry Potter");
+		
+		if (person != null) {
+			document.getElementById("demo254").innerHTML =
+				"Hello " + person + "! How are you today?";
+		}
+	}	
+</script>
+
+<!-- line-breaks -->
+<p>Click the button to demonstrate line-breaks in a popup box.</p>
+
+<button onclick="myFunction139()">Try it</button>
+
+<script>
+	"use strict";
+	function myFunction139() {
+		alert("Hello\nHow are you?");
+	}
+</script>
+
+<!---------------------------->
+<hr>
+<h2 id="JS Timing">JS Timing</h2>
+<hr>
+<!---------------------------->
+
+<!-- setInterval method -->
+<p>Click "Try it". Wait 3 seconds. Your page will alert "Hello".</p>
+
+<p>When you close the alert box, a new alert box will appear in 3 seconds.</p>
+
+<p>This will go on forever, until you close the window.</p>
+
+<button onclick="setInterval(function() {alert('Hello')}, 3000);">Try it</button>
+
+
+<!-- using setInterval to display the time -->
+<p>A script on this page starts this clock:</p>
+
+<p id="demo255"></p>
+
+<script>
+	var myVar = setInterval(function() {myTimer() }, 1000);
+
+	function myTimer() {
+		var d = new Date();
+		document.getElementById("demo255").innerHTML = d.toLocaleTimeString();
+	}
+</script>
+
+<!-- clearing the interval-->
+<p>A script on this page starts this clock:</p>
+
+<p id="demo256"></p>
+
+<button onclick="clearInterval(myVar)">Stop time</button>
+
+<script>
+	"use strict";
+	var myVar = setInterval(function(){myTimer2()},1000);
+	function myTimer2() {
+		var d = new Date();
+		document.getElementById("demo256").innerHTML = d.toLocaleTimeString();
+	}
+</script>
+
+
+<!-- timeout method -->
+<p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+
+<button onclick="setTimeout(function(){alert('Hello')},3000);">
+Try it</button>
+
+
+<!-- Clear timeout method -->
+<p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+<p>Click "Stop" to prevent the first function to execute.</p>
+<p>(You must click "Stop" before the 3 seconds are up.)</p>
+
+<button onclick="myVar = setTimeout(function(){alert('Hello')}, 3000);">Try it</button>
+
+<button onclick="clearTimeout(myVar)">Stop</button>
+<!---------------------------->
+<hr>
+<h2 id="JS Cookies">JS Cookies</h2>
+<hr>
+<!---------------------------->
+
+<p>Click the button to set the cookie.</p>
+
+<button onclick="checkCookie()">Try it</button>
+
+<p>Click the button, and you will be greeted.</p>
+
+<script>
+	"use strict";
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires=" + d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires; 
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') c = c.substring(1);
+			if (c.indexOf(name) != -1) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+
+	function checkCookie() {
+		var user = getCookie("username");
+		if (user != "") {
+			alert("Welcome again " + user);
+		} else {
+			user = prompt("Please enter your name:", "");
+			if (user != "" && user != null) {
+				setCookie("username", user, 30);
+			}
+		}
+	}
+</script>
+
+
+<!---------------------------->
+<hr>
+<h2 id="JS jQuery">JS jQuery</h2>
+<hr>
+<!---------------------------->
+<div>
+	<a href="//www.regiontran.com/testarea/testarea4">jQuery example</a>
+</div>
+
+<!---------------------------->
+<hr>
+<h2 id="JS Prototype">JS Prototype</h2>
+<hr>
+<!---------------------------->
+
+<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+<script>
+	function myFunction140() {
+		$("demo258").insert("Hello Prototype!");
+	}
+	Event.observe(window, "load", myFunction140);
+	
+	function myFunction141() {
+		$("demo259").writeAttribute("style","color:red").insert("Hello Prototype!");
+	}
+	Event.observe(window, "load", myFunction141);
+	
+</script>
+
+
+<p id="demo258"></p>
+<p id="demo259"></p>
+
+</div>
+
+<script>
+	function myFunction141() {
+		var x = document.getElementById("topimg");
+		x.style.visibility = "visible";
+	}	
+	function myFunction142() {
+		var x = document.getElementById("topimg");
+		x.style.visibility = "hidden";
+	}
+</script>
+
+<div id="top" onmouseover="myFunction141()" onmouseout="myFunction142()">
+	<a href="#toc"><img id="topimg" src="top.png" alt="Top" width="40em" height="40em"></a>
+</div>
+
+
+</body>
+</html>

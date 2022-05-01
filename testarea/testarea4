@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!-- Need to configure server for caching -->
+<html manifest="demo.appcache">
+<head>	
+	<meta charset = "UTF-8">
+<title>Cached page</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+<script>
+	function myFunction() {
+		$("#demo").html("Hello jQuery");
+	}
+	$(document).ready(myFunction);
+</script>
+
+
+<script>
+	function myFunction1() {
+		$("#demo2").attr("style", "color:red").html("Hello jQuery");
+	}
+
+	$(document).ready(myFunction1);
+</script>
+
+</body>
+</html>
